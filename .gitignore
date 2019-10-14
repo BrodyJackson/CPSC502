@@ -38,5 +38,8 @@ Thumbs.db
 
 # inteliJ files #
 .idea
+.idea/
 idea/
 
+
+server/__pycache__/

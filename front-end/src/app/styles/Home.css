@@ -1,0 +1,9 @@
+.header {
+    background-color: lightgreen;
+    /* height: 20vh;  */
+}
+
+.body {
+    background-color: lightblue; 
+    height: 50vh; 
+}
