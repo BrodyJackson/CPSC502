@@ -8,6 +8,7 @@ import PersonForm from './PersonForm.jsx'
 export default class Home extends React.Component {
     constructor(props){
         super(props)
+    
     }
 
     determineActive(position) {

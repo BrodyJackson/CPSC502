@@ -6,6 +6,9 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import BasicInfo from './formComponents/BasicInfo.jsx'
+import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
+import DietInfo from './formComponents/DietInfo.jsx'
 
 
 function getSteps() {
@@ -73,6 +76,18 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  const determineFormItems = (activeStep) => {
+    switch (activeStep) {
+      case 0: 
+        return <BasicInfo></BasicInfo>;
+      case 1:
+        return <LifestyleInfo></LifestyleInfo>;
+      case 2:
+        return <DietInfo></DietInfo>;
+      default:
+        return 'Unknown step';
+    }
+  }
   return (
     <Grid item xs={12}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -92,6 +107,7 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
+      {determineFormItems(activeStep)}
       <div>
         {activeStep === steps.length ? (
           <div>
