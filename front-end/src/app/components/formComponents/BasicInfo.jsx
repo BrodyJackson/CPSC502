@@ -20,27 +20,21 @@ export default class BasicInfo extends React.Component {
         }
     }
 
-    handleAgeSliderChange(value){
+    handleSliderChange(value, id){
+        console.log(this.state)
         console.log('slider changed to ', value)
-        this.setState({
-            ageValue: value
-        })
+        let currentState = this.state
+        currentState[`${id}Value`] = value
+        this.setState(currentState)
         console.log(this.state)
     }
 
-    handleHeightSliderChange(value){
-        console.log('slider changed to ', value)
-        this.setState({
-            heightValue: value
-        })
+    handleDropdownChange(value, id){
         console.log(this.state)
-    }
-
-    handleGenderChange(value){
-        console.log('gender changed to ', value)
-        this.setState({
-            genderValue: value
-        })
+        console.log('dropdown changed to ', value)
+        let currentState = this.state
+        currentState[`${id}Value`] = value.props.value
+        this.setState(currentState)
         console.log(this.state)
     }
     
@@ -64,7 +58,7 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={100}
                             min={5}
-                            onChange={(event, value) => this.handleAgeSliderChange(value) }
+                            onChange={(event, value) => this.handleSliderChange(value, 'age') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -85,7 +79,7 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={200}
                             min={50}
-                            onChange={(event, value) => this.handleHeightSliderChange(value) }
+                            onChange={(event, value) => this.handleSliderChange(value, 'height') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -94,21 +88,13 @@ export default class BasicInfo extends React.Component {
                                 <Typography variant='subtitle'>What is your Gender?</Typography>
                     </Grid>
                     <FormControl className={'test'}>
-                        <InputLabel htmlFor="age-auto-width">Gender</InputLabel>
                         <Select
-                        value={this.state.genderValue}
-                        onChange={(event, value) => this.handleGenderChange(value) }
-                        inputProps={{
-                            name: 'age',
-                            id: 'age-auto-width',
-                        }}
-                        autoWidth
-                        >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={'Male'}>Male</MenuItem>
-                        <MenuItem value={'Female'}>Female</MenuItem>
+                            value={this.state.genderValue}
+                            onChange={(event, value) => this.handleDropdownChange(value, 'gender') }
+                            >
+                            <MenuItem value=""><em>None</em></MenuItem>
+                            <MenuItem value={'Yes'}>Male</MenuItem>
+                            <MenuItem value={'No'}>Female</MenuItem>
                         </Select>
                     </FormControl>
                 </div>

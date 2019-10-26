@@ -17,12 +17,13 @@ export default class DietInfo extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            exerciseValue: 0,
-            sleepValue: 0,
-            smokingValue: null, 
-            antiBioticsValue: null,
-            countryValue: null,
-            foodCheckbox: false
+            foodCheckbox: false,
+            animalProtienValue: 0,
+            plantProteinValue: 0,
+            complexCarbsValue: 0, 
+            refinedCarbsValue: 0, 
+            saturatedFatsValue: 0, 
+            unsaturatedFatsValue: 0
         }
     }
 
@@ -41,6 +42,21 @@ export default class DietInfo extends React.Component {
             foodCheckbox: value
         })
         console.log(this.state)
+    }
+
+    checkDietPercentages(){
+        let values = ['animalProtienValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
+        let totalPercentage = 0
+        values.forEach( (entry) => {
+            let state = this.state
+            let number = state[entry]
+            totalPercentage = totalPercentage + number
+        })
+        console.log(totalPercentage)
+        if ((totalPercentage !== 0) && (totalPercentage !== 100)) {
+            return <Typography variant='caption'>Individual Percentages Must Sum to 100%</Typography>
+        }
+        return <></>
     }
 
     render(){
@@ -147,6 +163,7 @@ export default class DietInfo extends React.Component {
                 <div className="formElement">
                     <Grid item >
                         <Typography variant='h5'>What percentage of your total diet is contributed to the following?</Typography>
+                        {this.checkDietPercentages()}
                     </Grid>
                     <Typography variant='subtitle'>Proteins</Typography>
                     <Grid container justify="space-evenly">
@@ -158,11 +175,12 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:2, label: '2'},
-                                    {value:4, label: '4'},
-                                    {value:6, label: '6'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={10}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'animalProtein') }
                             ></PrettoSlider>
@@ -175,11 +193,12 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:5, label: '5'},
-                                    {value:10, label: '10'},
-                                    {value:15, label: '15'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={20}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'plantProtein') }
                             ></PrettoSlider>
@@ -195,11 +214,12 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:2, label: '2'},
-                                    {value:4, label: '4'},
-                                    {value:6, label: '6'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={10}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'complexCarbs') }
                             ></PrettoSlider>
@@ -212,11 +232,12 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:5, label: '5'},
-                                    {value:10, label: '10'},
-                                    {value:15, label: '15'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={20}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'refinedCarbs') }
                             ></PrettoSlider>
@@ -232,11 +253,12 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:2, label: '2'},
-                                    {value:4, label: '4'},
-                                    {value:6, label: '6'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={10}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'saturatedFats') }
                             ></PrettoSlider>
@@ -245,15 +267,16 @@ export default class DietInfo extends React.Component {
                             <Typography variant='subtitle2'>Unsaturated Fats</Typography>
                             <PrettoSlider
                                 className="slider"
-                                aria-label='Hours'
+                                aria-label='Percentage'
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:5, label: '5'},
-                                    {value:10, label: '10'},
-                                    {value:15, label: '15'},
+                                    {value:20, label: '20%'},
+                                    {value:40, label: '40%'},
+                                    {value:60, label: '60%'},
+                                    {value:80, label: '80%'},
                                 ]}
-                                max={20}
+                                max={100}
                                 min={0}
                                 onChange={(event, value) => this.handleSliderChange(value, 'unsaturatedFats') }
                             ></PrettoSlider>

@@ -17,9 +17,10 @@ export default class LifestyleInfo extends React.Component {
         this.state = {
             exerciseValue: 0,
             sleepValue: 0,
-            smokingValue: null, 
-            antiBioticsValue: null,
-            countryValue: null
+            stressedValue: 0,
+            smokingValue: '', 
+            antiBioticsValue: '',
+            countryValue: ''
         }
     }
 
@@ -32,35 +33,12 @@ export default class LifestyleInfo extends React.Component {
         console.log(this.state)
     }
 
-    handleSmokingChange(value){
-        console.log('gender changed to ', value)
-        this.setState({
-            smokingValue: value
-        })
+    handleDropdownChange(value, id){
         console.log(this.state)
-    }
-
-    handleAntiBioticsChange(value){
-        console.log('gender changed to ', value)
-        this.setState({
-            antiBioticsValue: value
-        })
-        console.log(this.state)
-    }
-
-    handleCountryChange(value){
-        console.log('gender changed to ', value)
-        this.setState({
-            antiBioticsValue: value
-        })
-        console.log(this.state)
-    }
-
-    handleStressedsChange(value){
-        console.log('gender changed to ', value)
-        this.setState({
-            stressedValue: value
-        })
+        console.log('dropdown changed to ', value)
+        let currentState = this.state
+        currentState[`${id}Value`] = value.props.value
+        this.setState(currentState)
         console.log(this.state)
     }
 
@@ -151,21 +129,13 @@ export default class LifestyleInfo extends React.Component {
                             </Grid>
                             <Grid item>
                                 <FormControl className={'test'}>
-                                    <InputLabel htmlFor="age-auto-width">Smoking Status?</InputLabel>
                                     <Select
-                                    value={this.state.smokingValue}
-                                    onChange={(event, value) => this.handleSmokingChange(value) }
-                                    inputProps={{
-                                        name: 'smoke',
-                                        id: 'age-auto-width',
-                                    }}
-                                    autoWidth
-                                    >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={'Yes'}>Yes</MenuItem>
-                                    <MenuItem value={'No'}>No</MenuItem>
+                                        value={this.state.smokingValue}
+                                        onChange={(event, value) => this.handleDropdownChange(value, 'smoking') }
+                                        >
+                                        <MenuItem value=""><em>None</em></MenuItem>
+                                        <MenuItem value={'Yes'}>Yes</MenuItem>
+                                        <MenuItem value={'No'}>No</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
@@ -176,21 +146,13 @@ export default class LifestyleInfo extends React.Component {
                             </Grid>
                             <Grid item>
                                 <FormControl className={'test'}>
-                                    <InputLabel htmlFor="age-auto-width">AntiBiotics?</InputLabel>
                                     <Select
-                                    value={this.state.antiBioticsValue}
-                                    onChange={(event, value) => this.handleAntiBioticsChange(value) }
-                                    inputProps={{
-                                        name: 'smoke',
-                                        id: 'age-auto-width',
-                                    }}
-                                    autoWidth
-                                    >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={'Yes'}>Yes</MenuItem>
-                                    <MenuItem value={'No'}>No</MenuItem>
+                                        value={this.state.antiBioticsValue}
+                                        onChange={(event, value) => this.handleDropdownChange(value, 'antiBiotics') }
+                                        >
+                                        <MenuItem value=""><em>None</em></MenuItem>
+                                        <MenuItem value={'Yes'}>Yes</MenuItem>
+                                        <MenuItem value={'No'}>No</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
@@ -201,20 +163,12 @@ export default class LifestyleInfo extends React.Component {
                             </Grid>
                             <Grid item>
                                 <FormControl className={'test'}>
-                                    <InputLabel htmlFor="age-auto-width">Country?</InputLabel>
                                     <Select
-                                    value={this.state.antiBioticsValue}
-                                    onChange={(event, value) => this.handleCountryChange(value) }
-                                    inputProps={{
-                                        name: 'smoke',
-                                        id: 'age-auto-width',
-                                    }}
-                                    autoWidth
-                                    >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    {countryMenuItems}
+                                        value={this.state.countryValue}
+                                        onChange={(event, value) => this.handleDropdownChange(value, 'country') }
+                                        >
+                                        <MenuItem value=""><em>None</em></MenuItem>
+                                        {countryMenuItems}
                                     </Select>
                                 </FormControl>
                             </Grid>
