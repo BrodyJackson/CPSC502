@@ -15,14 +15,23 @@ export default class BasicInfo extends React.Component {
         super(props)
         this.state = {
             ageValue: 0,
+            heightValue: 0,
             genderValue: null, 
         }
     }
 
-    handleSliderChange(value){
+    handleAgeSliderChange(value){
         console.log('slider changed to ', value)
         this.setState({
             ageValue: value
+        })
+        console.log(this.state)
+    }
+
+    handleHeightSliderChange(value){
+        console.log('slider changed to ', value)
+        this.setState({
+            heightValue: value
         })
         console.log(this.state)
     }
@@ -55,7 +64,7 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={100}
                             min={5}
-                            onChange={(event, value) => this.handleSliderChange(value) }
+                            onChange={(event, value) => this.handleAgeSliderChange(value) }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -76,11 +85,14 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={200}
                             min={50}
-                            onChange={(event, value) => this.handleSliderChange(value) }
+                            onChange={(event, value) => this.handleHeightSliderChange(value) }
                         ></PrettoSlider>
                     </Grid>
                 </div>
                 <div className='formElement'>
+                    <Grid item >
+                                <Typography variant='subtitle'>What is your Gender?</Typography>
+                    </Grid>
                     <FormControl className={'test'}>
                         <InputLabel htmlFor="age-auto-width">Gender</InputLabel>
                         <Select
@@ -98,7 +110,6 @@ export default class BasicInfo extends React.Component {
                         <MenuItem value={'Male'}>Male</MenuItem>
                         <MenuItem value={'Female'}>Female</MenuItem>
                         </Select>
-                        
                     </FormControl>
                 </div>
             </>
