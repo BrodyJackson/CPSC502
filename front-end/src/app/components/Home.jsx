@@ -2,24 +2,92 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import HeaderCell from './HeaderCell.jsx'
 import '../styles/Home.css'
-import PersonForm from './PersonForm.jsx'
-
+import PersonFormController from './PersonFormController.jsx'
+import BasicInfo from './formComponents/BasicInfo.jsx'
+import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
+import DietInfo from './formComponents/DietInfo.jsx'
 
 export default class Home extends React.Component {
     constructor(props){
         super(props)
-    
+        this.state = {
+            ageValue: 0,
+            heightValue: 0,
+            genderValue: '',
+            exerciseValue: 0,
+            sleepValue: 0,
+            stressedValue: 0,
+            smokingValue: '', 
+            antiBioticsValue: '',
+            countryValue: '', 
+            foodCheckboxValue: {
+                yogurt: false,
+                sauerkraut: false, 
+                kefir: false, 
+                kimchi: false, 
+                tempeh: false, 
+                miso: false
+            },
+            dietCheckboxValue: {
+                mediterranean: false,
+                vegan: false,
+                glutenfree: false, 
+                vegitarean: false,
+                western: false
+            },
+            animalProtienValue: 0,
+            plantProteinValue: 0,
+            complexCarbsValue: 0, 
+            refinedCarbsValue: 0, 
+            saturatedFatsValue: 0, 
+            unsaturatedFatsValue: 0
+        }
     }
 
-    determineActive(position) {
-        return false
+    handleSliderChange = (value, id) => {
+        console.log(this.state)
+        console.log('slider changed to ', value)
+        let currentState = this.state
+        currentState[`${id}Value`] = value
+        this.setState(currentState)
+        console.log(this.state)
+    }
+
+    handleDropdownChange = (value, id) => {
+        console.log(this.state)
+        console.log('dropdown changed to ', value)
+        let currentState = this.state
+        currentState[`${id}Value`] = value.props.value
+        this.setState(currentState)
+        console.log(this.state)
+    }
+
+    handleCheckboxChange = (value, id, type, blah) => {
+        console.log('gender changed to ', value, blah)
+        let currentState = this.state
+        currentState[`${id}Value`][type] = value
+        this.setState(currentState)
+        console.log(this.state)
+    }
+
+    determineFormItems = (activeStep) => {
+        switch (activeStep) {
+            case 0: 
+                return <BasicInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></BasicInfo>;
+            case 1:
+                return <LifestyleInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></LifestyleInfo>;
+            case 2:
+                return <DietInfo handleCheckbox={this.handleCheckboxChange} handleSlider={this.handleSliderChange}></DietInfo>;
+            default:
+                return 'Unknown step';
+        }
     }
 
     render(){
         return (
             <>
             <Grid container className='mainform'>
-                <PersonForm></PersonForm>
+                <PersonFormController determineCurrentForm={this.determineFormItems}></PersonFormController>
             </Grid>
             {/* <Grid container className='body'>
                 

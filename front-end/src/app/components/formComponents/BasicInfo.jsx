@@ -21,21 +21,12 @@ export default class BasicInfo extends React.Component {
     }
 
     handleSliderChange(value, id){
-        console.log(this.state)
-        console.log('slider changed to ', value)
-        let currentState = this.state
-        currentState[`${id}Value`] = value
-        this.setState(currentState)
-        console.log(this.state)
+        console.log(this.props)
+        this.props.handleSlider(value, id)
     }
 
     handleDropdownChange(value, id){
-        console.log(this.state)
-        console.log('dropdown changed to ', value)
-        let currentState = this.state
-        currentState[`${id}Value`] = value.props.value
-        this.setState(currentState)
-        console.log(this.state)
+        this.props.handleDropdown(value, id)
     }
     
     render(){

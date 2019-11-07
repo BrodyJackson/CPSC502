@@ -27,23 +27,6 @@ export default class DietInfo extends React.Component {
         }
     }
 
-    handleSliderChange(value, id){
-        console.log(this.state)
-        console.log('slider changed to ', value)
-        let currentState = this.state
-        currentState[`${id}Value`] = value
-        this.setState(currentState)
-        console.log(this.state)
-    }
-
-    handleCheckboxChange(value, blah){
-        console.log('gender changed to ', value, blah)
-        this.setState({
-            foodCheckbox: value
-        })
-        console.log(this.state)
-    }
-
     checkDietPercentages(){
         let values = ['animalProtienValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
         let totalPercentage = 0
@@ -76,13 +59,11 @@ export default class DietInfo extends React.Component {
                                     defaultValue={0}
                                     valueLabelDisplay="auto"
                                     marks={[
-                                        {value:2, label: '2'},
-                                        {value:4, label: '4'},
-                                        {value:6, label: '6'},
+                                        {value:5, label: '5'},
                                     ]}
                                     max={10}
                                     min={0}
-                                    onChange={(event, value) => this.handleSliderChange(value, 'vegetables') }
+                                    onChange={(event, value) => this.props.handleSlider(value, 'vegetables') }
                                 ></PrettoSlider>
                             </Grid>
                             <Grid item xs={5}>
@@ -94,12 +75,10 @@ export default class DietInfo extends React.Component {
                                     valueLabelDisplay="auto"
                                     marks={[
                                         {value:5, label: '5'},
-                                        {value:10, label: '10'},
-                                        {value:15, label: '15'},
                                     ]}
-                                    max={20}
+                                    max={10}
                                     min={0}
-                                    onChange={(event, value) => this.handleSliderChange(value, 'fruits') }
+                                    onChange={(event, value) => this.props.handleSlider(value, 'fruits') }
                                 ></PrettoSlider>
                             </Grid>
                         </Grid>
@@ -113,7 +92,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'yogurt', event)} value="yogurt" />
                                 }
                                 label="Yogurt"
                             />
@@ -121,7 +100,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'sauerkraut', event)} value="sauerkraut" />
                                 }
                                 label="Sauerkraut"
                             />
@@ -129,7 +108,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'kefir', event)} value="kefir" />
                                 }
                                 label="Kefir"
                             />
@@ -137,7 +116,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'kimchi', event)} value="kimchi" />
                                 }
                                 label="Kimchi"
                             />
@@ -145,7 +124,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'tempeh', event)} value="tempeh" />
                                 }
                                 label="Tempeh"
                             />
@@ -153,7 +132,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'foodCheckbox', 'miso', event)} value="miso" />
                                 }
                                 label="Miso"
                             />
@@ -182,7 +161,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'animalProtein') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'animalProtein') }
                             ></PrettoSlider>
                         </Grid>
                         <Grid item xs={5}>
@@ -200,7 +179,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'plantProtein') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'plantProtein') }
                             ></PrettoSlider>
                         </Grid>
                     </Grid>
@@ -221,7 +200,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'complexCarbs') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'complexCarbs') }
                             ></PrettoSlider>
                         </Grid>
                         <Grid item xs={5}>
@@ -239,7 +218,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'refinedCarbs') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'refinedCarbs') }
                             ></PrettoSlider>
                         </Grid>
                     </Grid>
@@ -260,7 +239,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'saturatedFats') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'saturatedFats') }
                             ></PrettoSlider>
                         </Grid>
                         <Grid item xs={5}>
@@ -278,7 +257,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.handleSliderChange(value, 'unsaturatedFats') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'unsaturatedFats') }
                             ></PrettoSlider>
                         </Grid>
                     </Grid>
@@ -291,7 +270,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'dietCheckbox', 'mediterranean', event)} value="mediterranean" />
                                 }
                                 label="Mediterranean"
                             />
@@ -299,7 +278,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'dietCheckbox', 'glutenfree', event)} value="glutenfree" />
                                 }
                                 label="Gluten Free"
                             />
@@ -307,7 +286,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'dietCheckbox', 'vegitarian', event)} value="vegitarian" />
                                 }
                                 label="Vegitarian"
                             />
@@ -315,7 +294,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'dietCheckbox', 'vegan', event)} value="vegan" />
                                 }
                                 label="Vegan"
                             />
@@ -323,7 +302,7 @@ export default class DietInfo extends React.Component {
                         <Grid item xs={4}>
                             <FormControlLabel
                                 control={
-                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.handleCheckboxChange(value, event)} value="checkedA" />
+                                <Checkbox checked={this.state.foodCheckbox[0]} onChange={(event, value) => this.props.handleCheckbox(value, 'dietCheckbox', 'western', event)} value="western" />
                                 }
                                 label="Western"
                             />

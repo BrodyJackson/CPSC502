@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import BasicInfo from './formComponents/BasicInfo.jsx'
 import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
 import DietInfo from './formComponents/DietInfo.jsx'
+import Results from './Results.jsx'
 
 
 function getSteps() {
@@ -28,8 +29,9 @@ function getStepContent(step) {
   }
 }
 
-export default function HorizontalLinearStepper() {
+export default function HorizontalLinearStepper(props) {
   
+  console.log(props.test)
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
@@ -76,17 +78,21 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
-  const determineFormItems = (activeStep) => {
-    switch (activeStep) {
-      case 0: 
-        return <BasicInfo></BasicInfo>;
-      case 1:
-        return <LifestyleInfo></LifestyleInfo>;
-      case 2:
-        return <DietInfo></DietInfo>;
-      default:
-        return 'Unknown step';
-    }
+  // const determineFormItems = (activeStep) => {
+  //   switch (activeStep) {
+  //     case 0: 
+  //       return <BasicInfo></BasicInfo>;
+  //     case 1:
+  //       return <LifestyleInfo></LifestyleInfo>;
+  //     case 2:
+  //       return <DietInfo></DietInfo>;
+  //     default:
+  //       return 'Unknown step';
+  //   }
+  // }
+
+  const formValuesSubmitted = (formValues) => {
+
   }
   return (
     <Grid item xs={12}>
@@ -107,13 +113,11 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
-      {determineFormItems(activeStep)}
+      {props.determineCurrentForm(activeStep)}
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography >
-              All steps completed - you&apos;re finished
-            </Typography>
+            <Results></Results>
             <Button onClick={handleReset} >
               Reset
             </Button>
@@ -130,7 +134,6 @@ export default function HorizontalLinearStepper() {
                   variant="contained"
                   color="primary"
                   onClick={handleSkip}
-                  
                 >
                   Skip
                 </Button>
@@ -139,8 +142,7 @@ export default function HorizontalLinearStepper() {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={handleNext}
-                
+                onClick={handleNext} 
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
