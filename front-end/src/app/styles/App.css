@@ -5,3 +5,7 @@
 .App-link {
   color: #09d3ac;
 }
+
+.loadingContainer{
+  height: 75vh;
+}

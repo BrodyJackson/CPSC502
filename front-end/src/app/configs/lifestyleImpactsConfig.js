@@ -1,0 +1,356 @@
+// this file maps contains confugration elements which detail the effects that each of the lifestyle elements have on the gut
+// shows which genera are positively or negatively impacted 
+// the idea is to get these values to be the ones which are supported by data analytics in the future
+// for now they are encoded based on effects found in current research into the topic
+
+const height = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const weight = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const age = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const gender = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const exercise = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const sleep = {
+    bifidobacterium: 'increase',
+    lactobacillus: 'increase', 
+    bacteroides: 'increase',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const stress = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: 'decrease',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: 'increase', 
+    roseburia: 'decrease',
+    eubacterium: null, 
+    enterococcus: 'increase',
+    faecalibacterium: 'decrease', 
+    eschericiaColi: 'increase',
+    helicobacterPylori: null, 
+    streptococcus: 'increase',
+}   
+
+const smoking = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: 'increase',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: 'increase', 
+    roseburia: null,
+    eubacterium: 'decrease', 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: 'decrease', 
+    streptococcus: null,
+}
+
+const antibiotics = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: 'increase',
+    alistipes: 'decrease', 
+    bilophila: 'decrease', 
+    clostridium: 'decrease', 
+    roseburia: 'decrease',
+    eubacterium: 'decrease', 
+    enterococcus: 'increase',
+    faecalibacterium: 'decrease', 
+    eschericiaColi: 'decrease',
+    helicobacterPylori: 'decrease', 
+    streptococcus: 'decrease',
+}
+
+const location = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const fermentedfood = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const mediterranean = {
+    bifidobacterium: 'increase',
+    lactobacillus: 'increase', 
+    bacteroides: 'increase',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: 'increase',
+    eubacterium: 'increase', 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const vegan = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const glutenfree = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: 'decrease',
+    eubacterium: 'decrease', 
+    enterococcus: 'increase',
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const vegitarean = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const western = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: 'decrease',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: 'decrease', 
+    enterococcus: 'increase',
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const animalprotein = {
+    bifidobacterium: 'increase',
+    lactobacillus: null, 
+    bacteroides: 'increase',
+    alistipes: 'increase', 
+    bilophila: 'increase', 
+    clostridium: 'increase', 
+    roseburia: 'decrease',
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const plantprotein = {
+    bifidobacterium: 'increase',
+    lactobacillus: 'increase', 
+    bacteroides: 'decrease',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: 'decrease', 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const complexcarbs = {
+    bifidobacterium: 'increase',
+    lactobacillus: null, 
+    bacteroides: 'decrease',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const refinedcarbs = {
+    bifidobacterium: 'decrease',
+    lactobacillus: 'decrease', 
+    bacteroides: 'increase',
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: 'decrease', 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const saturatedfat = {
+    bifidobacterium: null,
+    lactobacillus: null, 
+    bacteroides: 'increase',
+    alistipes: null, 
+    bilophila: 'increase', 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: 'increase', 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}
+
+const unsaturatedfat = {
+    bifidobacterium: 'increase',
+    lactobacillus: null, 
+    bacteroides: null,
+    alistipes: null, 
+    bilophila: null, 
+    clostridium: null, 
+    roseburia: null,
+    eubacterium: null, 
+    enterococcus: null,
+    faecalibacterium: null, 
+    eschericiaColi: null,
+    helicobacterPylori: null, 
+    streptococcus: null,
+}

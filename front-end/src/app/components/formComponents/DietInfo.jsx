@@ -27,6 +27,7 @@ export default class DietInfo extends React.Component {
         }
     }
 
+    // TODO: fix this function based on changes made to state being in home component
     checkDietPercentages(){
         let values = ['animalProtienValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
         let totalPercentage = 0

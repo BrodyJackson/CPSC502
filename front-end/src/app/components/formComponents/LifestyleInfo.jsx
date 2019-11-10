@@ -15,12 +15,6 @@ export default class LifestyleInfo extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            exerciseValue: 0,
-            sleepValue: 0,
-            stressedValue: 0,
-            smokingValue: '', 
-            antiBioticsValue: '',
-            countryValue: ''
         }
     }
 
@@ -73,7 +67,7 @@ export default class LifestyleInfo extends React.Component {
                             ]}
                             max={20}
                             min={0}
-                            onChange={(event, value) => this.handleSliderChange(value, 'exercise') }
+                            onChange={(event, value) => this.props.handleSlider(value, 'exercise') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -95,7 +89,7 @@ export default class LifestyleInfo extends React.Component {
                             ]}
                             max={10}
                             min={0}
-                            onChange={(event, value) => this.handleSliderChange(value, 'sleep') }
+                            onChange={(event, value) => this.props.handleSlider(value, 'sleep') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -117,7 +111,7 @@ export default class LifestyleInfo extends React.Component {
                             ]}
                             max={10}
                             min={0}
-                            onChange={(event, value) => this.handleSliderChange(value, 'stressed') }
+                            onChange={(event, value) => this.props.handleSlider(value, 'stressed') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -131,7 +125,7 @@ export default class LifestyleInfo extends React.Component {
                                 <FormControl className={'test'}>
                                     <Select
                                         value={this.state.smokingValue}
-                                        onChange={(event, value) => this.handleDropdownChange(value, 'smoking') }
+                                        onChange={(event, value) => this.props.handleDropdown(value, 'smoking') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         <MenuItem value={'Yes'}>Yes</MenuItem>
@@ -148,7 +142,7 @@ export default class LifestyleInfo extends React.Component {
                                 <FormControl className={'test'}>
                                     <Select
                                         value={this.state.antiBioticsValue}
-                                        onChange={(event, value) => this.handleDropdownChange(value, 'antiBiotics') }
+                                        onChange={(event, value) => this.props.handleDropdown(value, 'antiBiotics') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         <MenuItem value={'Yes'}>Yes</MenuItem>
@@ -165,7 +159,7 @@ export default class LifestyleInfo extends React.Component {
                                 <FormControl className={'test'}>
                                     <Select
                                         value={this.state.countryValue}
-                                        onChange={(event, value) => this.handleDropdownChange(value, 'country') }
+                                        onChange={(event, value) => this.props.handleDropdown(value, 'country') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         {countryMenuItems}

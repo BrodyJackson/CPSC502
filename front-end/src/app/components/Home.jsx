@@ -6,6 +6,7 @@ import PersonFormController from './PersonFormController.jsx'
 import BasicInfo from './formComponents/BasicInfo.jsx'
 import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
 import DietInfo from './formComponents/DietInfo.jsx'
+import Results from './Results.jsx'
 
 export default class Home extends React.Component {
     constructor(props){
@@ -13,6 +14,7 @@ export default class Home extends React.Component {
         this.state = {
             ageValue: 0,
             heightValue: 0,
+            weightValue: 0,
             genderValue: '',
             exerciseValue: 0,
             sleepValue: 0,
@@ -45,8 +47,6 @@ export default class Home extends React.Component {
     }
 
     handleSliderChange = (value, id) => {
-        console.log(this.state)
-        console.log('slider changed to ', value)
         let currentState = this.state
         currentState[`${id}Value`] = value
         this.setState(currentState)
@@ -54,8 +54,6 @@ export default class Home extends React.Component {
     }
 
     handleDropdownChange = (value, id) => {
-        console.log(this.state)
-        console.log('dropdown changed to ', value)
         let currentState = this.state
         currentState[`${id}Value`] = value.props.value
         this.setState(currentState)
@@ -63,7 +61,6 @@ export default class Home extends React.Component {
     }
 
     handleCheckboxChange = (value, id, type, blah) => {
-        console.log('gender changed to ', value, blah)
         let currentState = this.state
         currentState[`${id}Value`][type] = value
         this.setState(currentState)
@@ -79,7 +76,7 @@ export default class Home extends React.Component {
             case 2:
                 return <DietInfo handleCheckbox={this.handleCheckboxChange} handleSlider={this.handleSliderChange}></DietInfo>;
             default:
-                return 'Unknown step';
+                return <Results></Results>;
         }
     }
 

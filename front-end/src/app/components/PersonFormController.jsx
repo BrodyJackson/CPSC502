@@ -117,7 +117,6 @@ export default function HorizontalLinearStepper(props) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Results></Results>
             <Button onClick={handleReset} >
               Reset
             </Button>

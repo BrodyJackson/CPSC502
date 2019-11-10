@@ -13,22 +13,11 @@ import Select from '@material-ui/core/Select';
 export default class BasicInfo extends React.Component {
     constructor(props){
         super(props)
+        console.log(this.props)
         this.state = {
-            ageValue: 0,
-            heightValue: 0,
-            genderValue: null, 
         }
     }
-
-    handleSliderChange(value, id){
-        console.log(this.props)
-        this.props.handleSlider(value, id)
-    }
-
-    handleDropdownChange(value, id){
-        this.props.handleDropdown(value, id)
-    }
-    
+  
     render(){
         return (
             <>
@@ -49,7 +38,7 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={100}
                             min={5}
-                            onChange={(event, value) => this.handleSliderChange(value, 'age') }
+                            onChange={(event, value) => this.props.handleSlider(value, 'age') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -70,7 +59,28 @@ export default class BasicInfo extends React.Component {
                             ]}
                             max={200}
                             min={50}
-                            onChange={(event, value) => this.handleSliderChange(value, 'height') }
+                            onChange={(event, value) => this.props.handleSlider(value, 'height') }
+                        ></PrettoSlider>
+                    </Grid>
+                </div>
+                <div className="formElement">
+                    <Grid item >
+                        <Typography variant='h5'>What is your weight (lbs)</Typography>
+                    </Grid>
+                    <Grid item >
+                        <PrettoSlider
+                            className="slider"
+                            aria-label='Height'
+                            defaultValue={50}
+                            valueLabelDisplay="auto"
+                            marks={[
+                                {value:100, label: '100 lbs'},
+                                {value:200, label: '200 lbs'},
+                                {value:300, label: '300 lbs'},
+                            ]}
+                            max={400}
+                            min={50}
+                            onChange={(event, value) => this.props.handleSlider(value, 'weight') }
                         ></PrettoSlider>
                     </Grid>
                 </div>
@@ -81,7 +91,7 @@ export default class BasicInfo extends React.Component {
                     <FormControl className={'test'}>
                         <Select
                             value={this.state.genderValue}
-                            onChange={(event, value) => this.handleDropdownChange(value, 'gender') }
+                            onChange={(event, value) => this.props.handleDropdown(value, 'gender') }
                             >
                             <MenuItem value=""><em>None</em></MenuItem>
                             <MenuItem value={'Yes'}>Male</MenuItem>
