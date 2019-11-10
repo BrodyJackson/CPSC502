@@ -13,7 +13,7 @@ import Results from './Results.jsx'
 
 
 function getSteps() {
-  return ['Basic Info', 'Lifestyle', 'Diet'];
+  return ['Basic Info', 'Lifestyle', 'Diet', 'Results'];
 }
 
 function getStepContent(step) {
@@ -115,7 +115,7 @@ export default function HorizontalLinearStepper(props) {
       </Stepper>
       {props.determineCurrentForm(activeStep)}
       <div>
-        {activeStep === steps.length ? (
+        {activeStep === steps.length -1 ? (
           <div>
             <Button onClick={handleReset} >
               Reset
@@ -143,7 +143,7 @@ export default function HorizontalLinearStepper(props) {
                 color="primary"
                 onClick={handleNext} 
               >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 2 ? 'Finish' : 'Next'}
               </Button>
             </div>
           </div>

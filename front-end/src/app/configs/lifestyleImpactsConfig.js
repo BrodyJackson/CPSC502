@@ -354,3 +354,28 @@ const unsaturatedfat = {
     helicobacterPylori: null, 
     streptococcus: null,
 }
+
+export const allLifestyleImpacts = [
+    'Height', 
+    'Weight', 
+    'Age',
+    'Gender',
+    'Exercise',
+    'Sleep',
+    'Smoking',
+    'Stress',
+    'Antibiotics',
+    'Fermentedfood',
+    'Location',
+    'Mediterranean',
+    'Vegan Diet',
+    'Gluten Free Diet',
+    'Vegitarian Diet',
+    'Western Diet', 
+    'Animal Proteins',
+    'Plant Proteins',
+    'Complex Carbs',
+    'Refined Carbs',
+    'Saturated Fats',
+    'Unsaturated Fats'
+]
