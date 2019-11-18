@@ -94,8 +94,8 @@ export default class BasicInfo extends React.Component {
                             onChange={(event, value) => this.props.handleDropdown(value, 'gender') }
                             >
                             <MenuItem value=""><em>None</em></MenuItem>
-                            <MenuItem value={'Yes'}>Male</MenuItem>
-                            <MenuItem value={'No'}>Female</MenuItem>
+                            <MenuItem value={'Male'}>Male</MenuItem>
+                            <MenuItem value={'Female'}>Female</MenuItem>
                         </Select>
                     </FormControl>
                 </div>
