@@ -13,6 +13,7 @@ export default class Results extends React.Component {
             loading: true
         }
         this.shouldBeLoading()
+        console.log(this.props, ' props in results')
     }
 
     shouldBeLoading = () => {
@@ -35,7 +36,7 @@ export default class Results extends React.Component {
               {this.state.loading == false &&
                 <Grid container direction="column" className='resultsContainer' justify="space-evenly" spacing={5}>
                     <Grid item><Typography variant="h4">Here's a snapshot of what's affecting your gut</Typography></Grid>
-                    <Grid item className='heatMap'><Heatmap></Heatmap></Grid>
+                    <Grid item className='heatMap'><Heatmap surveyResults={this.props.currentFormItems}></Heatmap></Grid>
                 </Grid>
               }
             </>

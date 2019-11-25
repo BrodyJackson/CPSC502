@@ -355,6 +355,27 @@ const unsaturatedfat = {
     streptococcus: null,
 }
 
+export const apiRequiredInfo = [
+    {'attribute' : 'height', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'weight', 'maxValue': '400', 'type':'slider'},
+    {'attribute' : 'age', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'gender', 'maxValue': '1', 'type':'select'},
+    {'attribute' : 'exercise', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'sleep', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'smoking', 'maxValue': '1', 'type':'select'},
+    {'attribute' : 'stressed', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'antiBiotics', 'maxValue': '1', 'type':'select'},
+    {'attribute' : 'foodCheckbox', 'maxValue': '10', 'type':'checkbox'},
+    {'attribute' : 'country', 'maxValue': '1', 'type':'select'},
+    {'attribute' : 'animalProtein', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'plantProtein', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'complexCarbs', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'refinedCarbs', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'saturatedFats', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'unsaturatedFats', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'dietCheckbox', 'maxValue': '1', 'type':'checkbox'},
+]
+
 export const allLifestyleImpacts = [
     'Height', 
     'Weight', 

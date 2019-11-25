@@ -37,7 +37,7 @@ export default class Home extends React.Component {
                 vegitarean: false,
                 western: false
             },
-            animalProtienValue: 0,
+            animalProteinValue: 0,
             plantProteinValue: 0,
             complexCarbsValue: 0, 
             refinedCarbsValue: 0, 
@@ -67,16 +67,17 @@ export default class Home extends React.Component {
         console.log(this.state)
     }
 
+
     determineFormItems = (activeStep) => {
         switch (activeStep) {
             case 0: 
-                return <BasicInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></BasicInfo>;
+                return <BasicInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange} genderValue={this.state.gendervalue}></BasicInfo>;
             case 1:
                 return <LifestyleInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></LifestyleInfo>;
             case 2:
                 return <DietInfo handleCheckbox={this.handleCheckboxChange} handleSlider={this.handleSliderChange}></DietInfo>;
             default:
-                return <Results></Results>;
+                return <Results currentFormItems={this.state}></Results>;
         }
     }
 
@@ -84,7 +85,7 @@ export default class Home extends React.Component {
         return (
             <>
             <Grid container className='mainform'>
-                <PersonFormController determineCurrentForm={this.determineFormItems}></PersonFormController>
+                <PersonFormController determineCurrentForm={this.determineFormItems} currentFormItems={this.state}></PersonFormController>
             </Grid>
             {/* <Grid container className='body'>
                 

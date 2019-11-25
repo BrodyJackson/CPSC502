@@ -32,6 +32,7 @@ function getStepContent(step) {
 export default function HorizontalLinearStepper(props) {
   
   console.log(props.test)
+  console.log('props here ', props)
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();

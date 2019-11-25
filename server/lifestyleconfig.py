@@ -5,6 +5,7 @@
 
 lifestyle_effects = {
     'height' : {
+        'impact_scale': 0.2,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -20,6 +21,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },    
     'weight' : {
+        'impact_scale': 0.7,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -35,6 +37,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'age' : {
+        'impact_scale': 0.6,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -50,6 +53,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'gender' : {
+        'impact_scale': 0.3,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -65,6 +69,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'exercise' : {
+        'impact_scale': 0.7,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -80,6 +85,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'sleep' : {
+        'impact_scale': 0.7,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'increase',
         'bacteroides' : 'increase',
@@ -94,8 +100,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'stress' : {
-        'impact_scale': 0.8,
+    'stressed' : {
+        'impact_scale': 0.6,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'decrease',
@@ -111,7 +117,7 @@ lifestyle_effects = {
         'streptococcus' : 'increase',
     },
     'smoking' : {
-        'impact_scale': 0.9,
+        'impact_scale': 0.8,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'increase',
@@ -126,7 +132,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'decrease',
         'streptococcus' : 'null',
     },
-    'antibiotics' : {
+    'antiBiotics' : {
+        'impact_scale': 0.9,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'increase',
@@ -141,7 +148,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'decrease',
         'streptococcus' : 'decrease',
     },
-    'location' : {
+    'country' : {
+        'impact_scale': 0.2,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -157,7 +165,8 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'fermentedfood' : {
-        'bifidobacterium' : 'null',
+        'impact_scale': 0.6,
+        'bifidobacterium' : 'increase',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
         'alistipes' : 'null',
@@ -172,6 +181,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'mediterranean' : {
+        'impact_scale': 0.2,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'increase',
         'bacteroides' : 'increase',
@@ -187,6 +197,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'vegan' : {
+        'impact_scale': 0.2,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -202,6 +213,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'glutenfree' : {
+        'impact_scale': 0.2,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'null',
@@ -217,6 +229,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'vegitarean' : {
+        'impact_scale': 0.3,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',
@@ -232,6 +245,7 @@ lifestyle_effects = {
         'streptococcus' : 'null',
     },
     'western' : {
+        'impact_scale': 0.4,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'decrease',
@@ -246,7 +260,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'animalprotein' : {
+    'animalProtein' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'null',
         'bacteroides' : 'increase',
@@ -261,7 +276,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'plantprotein' : {
+    'plantProtein' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'increase',
         'bacteroides' : 'decrease',
@@ -276,7 +292,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'complexcarbs' : {
+    'complexCarbs' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'null',
         'bacteroides' : 'decrease',
@@ -291,7 +308,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'refinedcarbs' : {
+    'refinedCarbs' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
         'bacteroides' : 'increase',
@@ -306,7 +324,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'saturatedfat' : {
+    'saturatedFats' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'null',
         'lactobacillus' : 'null',
         'bacteroides' : 'increase',
@@ -321,7 +340,8 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'unsaturatedfat' : {
+    'unsaturatedFats' : {
+        'impact_scale': 0.5,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'null',
         'bacteroides' : 'null',

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
-import { allLifestyleImpacts } from '../../configs/lifestyleImpactsConfig.js'
+import { allLifestyleImpacts, apiRequiredInfo } from '../../configs/lifestyleImpactsConfig.js'
 import { allGenusList } from '../../configs/bacteriaInfo.js'
+import { CircularProgress, Grid, Typography } from '@material-ui/core'
+const axios = require('axios').default
 
 function generateData(count, yrange) {
     var i = 0;
@@ -33,11 +35,13 @@ function generateData(count, yrange) {
       return seriesData
   }
 
+
+
   export default class Heatmap extends React.Component {
     
     constructor(props) {
       super(props);
-      
+
       this.state = {
         options: {
           plotOptions: {
@@ -79,19 +83,72 @@ function generateData(count, yrange) {
             text: ''
           }
         },
-        series: generateSeriesData(),
+        series: this.prepareAPICall(this.props.surveyResults),
       }
     }
 
+    getHeatmap(params) {
+      debugger
+      fetch('http://127.0.0.1:5000/lifestyleheatmap', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(params)
+      })
+        .then( response => response.json())
+        .then( json => {
+          this.setState({
+            series: json
+          })
+        })
+    }
+
+    prepareAPICall(results) {
+      let apiRequest = []
+      console.log(results)
+      console.log(apiRequiredInfo)
+      apiRequiredInfo.forEach( record => {
+        let requestItem = record
+        if (record['attribute'] === 'foodCheckbox') {
+          let count = 0
+          for ( let key in results[`${record['attribute']}Value`] ) {
+            if (results[`${record['attribute']}Value`][key] === true) count++
+          }
+          requestItem['value'] = count
+          requestItem['attribute'] = 'fermentedfood'
+          apiRequest.push(requestItem)
+        }
+        else if (record['attribute'] === 'dietCheckbox') {
+          for ( let key in results[`${record['attribute']}Value`] ) {
+            requestItem = {
+              'attribute': key,
+              'maxValue': 1,
+              'type': 'checkbox',
+              'value': results[`${record['attribute']}Value`][key] === true ? 1 : 0
+            }
+            apiRequest.push(requestItem)
+          }
+        }
+        else {
+          requestItem['value'] = results[`${record['attribute']}Value`]
+          apiRequest.push(requestItem)
+        }
+      })
+      console.log(apiRequest)
+      this.getHeatmap(apiRequest)
+    }
+
     render() {
+
+      // const seriesData = this.getHeatmap(this.state.apiRequestParams)
+
       return (
-        
-
-        <div id="chart">
-          <ReactApexChart options={this.state.options} series={this.state.series} type="heatmap" height="350" />
-        </div>
-
-
+        <>
+        {this.state.series !== undefined &&
+          <div id="chart">
+            <ReactApexChart options={this.state.options} series={this.state.series} type="heatmap" height="350"/>
+          </div>
+        }
+        </>
       );
     }
   }

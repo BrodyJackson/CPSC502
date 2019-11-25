@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, url_for, flash, jsonify
+from flask_cors import CORS
 import numpy as np
 import pickle as p
 import json
@@ -6,7 +7,7 @@ import lifestyleconfig
 import apiServices
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/')
 def root():
@@ -14,8 +15,9 @@ def root():
 
 @app.route('/lifestyleheatmap/', methods=['GET','POST'])
 def calculate_heatmap_info():
-    data = request.get_json()
-    print('hello')
+    print(request, 'this is the request')
+    data = request.get_json(force=True)
+    print(data, ' this is the data')
     heatmap_data = apiServices.determine_diversity_scores(data)
     return jsonify(heatmap_data)
 

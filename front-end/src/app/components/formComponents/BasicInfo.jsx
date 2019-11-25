@@ -13,11 +13,19 @@ import Select from '@material-ui/core/Select';
 export default class BasicInfo extends React.Component {
     constructor(props){
         super(props)
-        console.log(this.props)
         this.state = {
+          genderDropdown: 'None'
         }
     }
-  
+
+    //this is example of how dropdowns should be done so that the value is showing properly
+    dropDownHandler(event, value) {
+      console.log('dropdown handler')
+      this.setState({genderDropdown : value.props.value})
+      this.props.handleDropdown(value, 'gender')
+      console.log(this.state)
+    }
+
     render(){
         return (
             <>
@@ -90,8 +98,8 @@ export default class BasicInfo extends React.Component {
                     </Grid>
                     <FormControl className={'test'}>
                         <Select
-                            value={this.state.genderValue}
-                            onChange={(event, value) => this.props.handleDropdown(value, 'gender') }
+                            value={this.state.genderDropdown}
+                            onChange={(event, value) => this.dropDownHandler(event, value) }
                             >
                             <MenuItem value=""><em>None</em></MenuItem>
                             <MenuItem value={'Male'}>Male</MenuItem>

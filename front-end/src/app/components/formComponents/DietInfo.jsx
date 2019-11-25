@@ -18,7 +18,7 @@ export default class DietInfo extends React.Component {
         super(props)
         this.state = {
             foodCheckbox: false,
-            animalProtienValue: 0,
+            animalProteinValue: 0,
             plantProteinValue: 0,
             complexCarbsValue: 0, 
             refinedCarbsValue: 0, 
@@ -29,7 +29,7 @@ export default class DietInfo extends React.Component {
 
     // TODO: fix this function based on changes made to state being in home component
     checkDietPercentages(){
-        let values = ['animalProtienValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
+        let values = ['animalProteinValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
         let totalPercentage = 0
         values.forEach( (entry) => {
             let state = this.state
