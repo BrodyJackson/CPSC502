@@ -45,8 +45,16 @@ function generateData(count, yrange) {
       this.state = {
         options: {
           chart: {
-            width: '150%'
+            height: 1000
           },
+          // yaxis: {
+          //   labels: {
+          //     minHeight: 20,
+          //     style: {
+          //       fontSize: '14px'
+          //     }
+          //   }
+          // },
           plotOptions: {
             heatmap: {
               shadeIntensity: 0.5,
@@ -100,6 +108,7 @@ function generateData(count, yrange) {
       })
         .then( response => response.json())
         .then( json => {
+          console.log(json)
           this.setState({
             series: json
           })

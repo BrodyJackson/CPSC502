@@ -20,14 +20,15 @@ def diversity_calculation(lifestyle_factor):
     print(config, ' config here')
     print(scaled_change_amount, ' change amount here')
     for genus in config:
-        print(genus)
-        print(config['{0}'.format(genus)])
-        value = 50
-        if config['{0}'.format(genus)] == 'increase':
-            value = value + scaled_change_amount
-        elif config['{0}'.format(genus)] == 'decrease':
-            value = value - scaled_change_amount
-        series.append({'x': genus, 'y': value})
+        if genus != 'impact_scale':
+            print(genus)
+            print(config['{0}'.format(genus)])
+            value = 50
+            if config['{0}'.format(genus)] == 'increase':
+                value = value + scaled_change_amount
+            elif config['{0}'.format(genus)] == 'decrease':
+                value = value - scaled_change_amount
+            series.append({'x': genus, 'y': value})
     return series
 
 

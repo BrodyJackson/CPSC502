@@ -12,7 +12,14 @@
 .welcomeHeaderContainer{
     max-height: 30vh;
 }
+.explanationModalContainer{
+    height: 50vh;
+    width: 50vw !important;
+    margin-top: 20vh;
+    margin-left: 25vw;
+    background-color: white;
 
+}
 @media only screen and (max-width: 955px) {
     .flexController {
         flex-direction: column-reverse;
