@@ -44,34 +44,38 @@ function generateData(count, yrange) {
 
       this.state = {
         options: {
+          chart: {
+            width: '150%'
+          },
           plotOptions: {
             heatmap: {
               shadeIntensity: 0.5,
               colorScale: {
-                ranges: [{
+                ranges: [
+                  {
                     from: 0,
                     to: 25,
-                    name: 'low',
-                    color: '#00A100'
+                    name: 'extreme',
+                    color: '#FF0000'
                   },
                   {
-                    from: 26,
+                    from: 25,
                     to: 50,
-                    name: 'medium',
-                    color: '#128FD9'
-                  },
-                  {
-                    from: 51,
-                    to: 75,
-                    name: 'high',
+                    name: 'low',
                     color: '#FFB200'
                   },
                   {
-                    from: 76,
+                    from: 50,
+                    to: 75,
+                    name: 'normal',
+                    color: '#128FD9'
+                  },
+                  {
+                    from: 75,
                     to: 100,
-                    name: 'extreme',
-                    color: '#FF0000'
-                  }
+                    name: 'high',
+                    color: '#00A100'
+                  },
                 ]
               }
             }

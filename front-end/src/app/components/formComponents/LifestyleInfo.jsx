@@ -15,25 +15,26 @@ export default class LifestyleInfo extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            smokingDropDown: 'None',
+            antiBioticsDropDown: 'None',
+            countryDropDown: 'None'
         }
     }
 
-    handleSliderChange(value, id){
-        console.log(this.state)
-        console.log('slider changed to ', value)
-        let currentState = this.state
-        currentState[`${id}Value`] = value
-        this.setState(currentState)
-        console.log(this.state)
-    }
-
-    handleDropdownChange(value, id){
-        console.log(this.state)
-        console.log('dropdown changed to ', value)
-        let currentState = this.state
-        currentState[`${id}Value`] = value.props.value
-        this.setState(currentState)
-        console.log(this.state)
+    dropDownHandler(event, value, type) {
+        console.log('dropdown handler')
+        switch (type) {
+            case 'smoking':
+                this.setState({smokingDropDown: value.props.value})
+                break;
+            case 'antiBiotics':
+                this.setState({antiBioticsDropDown: value.props.value})
+                break;
+            case 'country':
+                this.setState({countryDropDown: value.props.value})
+                break;
+        }
+        this.props.handleDropdown(value, type)
     }
 
     prepareCountryMenu = () => {
@@ -43,8 +44,7 @@ export default class LifestyleInfo extends React.Component {
         })
         return countryMenuItems
     }
-    
-    
+
     render(){
         let countryMenuItems = this.prepareCountryMenu()
         console.log(countryMenuItems)
@@ -124,8 +124,8 @@ export default class LifestyleInfo extends React.Component {
                             <Grid item>
                                 <FormControl className={'test'}>
                                     <Select
-                                        value={this.state.smokingValue}
-                                        onChange={(event, value) => this.props.handleDropdown(value, 'smoking') }
+                                        value={this.state.smokingDropDown}
+                                        onChange={(event, value) => this.dropDownHandler(event, value, 'smoking') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         <MenuItem value={'Yes'}>Yes</MenuItem>
@@ -141,8 +141,8 @@ export default class LifestyleInfo extends React.Component {
                             <Grid item>
                                 <FormControl className={'test'}>
                                     <Select
-                                        value={this.state.antiBioticsValue}
-                                        onChange={(event, value) => this.props.handleDropdown(value, 'antiBiotics') }
+                                        value={this.state.antiBioticsDropDown}
+                                        onChange={(event, value) => this.dropDownHandler(event, value, 'antiBiotics') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         <MenuItem value={'Yes'}>Yes</MenuItem>
@@ -158,8 +158,8 @@ export default class LifestyleInfo extends React.Component {
                             <Grid item>
                                 <FormControl className={'test'}>
                                     <Select
-                                        value={this.state.countryValue}
-                                        onChange={(event, value) => this.props.handleDropdown(value, 'country') }
+                                        value={this.state.countryDropDown}
+                                        onChange={(event, value) => this.dropDownHandler(event, value, 'country') }
                                         >
                                         <MenuItem value=""><em>None</em></MenuItem>
                                         {countryMenuItems}
