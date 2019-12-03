@@ -6,6 +6,7 @@ import PersonFormController from './PersonFormController.jsx'
 import BasicInfo from './formComponents/BasicInfo.jsx'
 import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
 import DietInfo from './formComponents/DietInfo.jsx'
+import WelcomePage from './formComponents/WelcomePage.jsx'
 import Results from './Results.jsx'
 
 export default class Home extends React.Component {
@@ -70,11 +71,13 @@ export default class Home extends React.Component {
 
     determineFormItems = (activeStep) => {
         switch (activeStep) {
-            case 0: 
-                return <BasicInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange} genderValue={this.state.gendervalue}></BasicInfo>;
+            case 0:
+                return <WelcomePage></WelcomePage>
             case 1:
-                return <LifestyleInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></LifestyleInfo>;
+                return <BasicInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange} genderValue={this.state.gendervalue}></BasicInfo>;
             case 2:
+                return <LifestyleInfo handleDropdown={this.handleDropdownChange} handleSlider={this.handleSliderChange}></LifestyleInfo>;
+            case 3:
                 return <DietInfo handleCheckbox={this.handleCheckboxChange} handleSlider={this.handleSliderChange}></DietInfo>;
             default:
                 return <Results currentFormItems={this.state}></Results>;
@@ -87,9 +90,6 @@ export default class Home extends React.Component {
             <Grid container className='mainform'>
                 <PersonFormController determineCurrentForm={this.determineFormItems} currentFormItems={this.state}></PersonFormController>
             </Grid>
-            {/* <Grid container className='body'>
-                
-            </Grid> */}
             </>
         )
     }

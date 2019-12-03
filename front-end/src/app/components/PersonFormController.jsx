@@ -6,23 +6,22 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import BasicInfo from './formComponents/BasicInfo.jsx'
-import LifestyleInfo from './formComponents/LifestyleInfo.jsx'
-import DietInfo from './formComponents/DietInfo.jsx'
 import Results from './Results.jsx'
 
 
 function getSteps() {
-  return ['Basic Info', 'Lifestyle', 'Diet', 'Results'];
+  return ['Welcome','Basic Info', 'Lifestyle', 'Diet', 'Results'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `Let's get to know each other!`;
+      return ``
     case 1:
-      return `Don't lie, you binge watched the office all week`;
+      return `Nice to meet you`;
     case 2:
+      return `Don't lie, you binge watched the office all week`;
+    case 3:
       return `Have you been eating your brocolli?`;
     default:
       return 'Unknown step';
@@ -92,9 +91,6 @@ export default function HorizontalLinearStepper(props) {
   //   }
   // }
 
-  const formValuesSubmitted = (formValues) => {
-
-  }
   return (
     <Grid item xs={12}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -126,7 +122,7 @@ export default function HorizontalLinearStepper(props) {
           <div>
             <Typography >{getStepContent(activeStep)}</Typography>
             <div>
-              <Button disabled={activeStep === 0} onClick={handleBack} >
+              <Button disabled={activeStep === 0} onClick={handleBack} style={{marginBottom:'2vh'}} >
                 Back
               </Button>
               {isStepOptional(activeStep) && (
@@ -134,15 +130,16 @@ export default function HorizontalLinearStepper(props) {
                   variant="contained"
                   color="primary"
                   onClick={handleSkip}
+                  style={{marginBottom:'2vh'}}
                 >
                   Skip
                 </Button>
               )}
-
               <Button
                 variant="contained"
                 color="primary"
-                onClick={handleNext} 
+                onClick={handleNext}
+                style={{marginBottom:'2vh'}}
               >
                 {activeStep === steps.length - 2 ? 'Finish' : 'Next'}
               </Button>
