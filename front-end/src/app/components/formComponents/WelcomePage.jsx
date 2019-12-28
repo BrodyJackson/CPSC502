@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import '../../styles/Forms.css'
 import { ReactComponent as Bacteria1 } from '../../resources/001-bacteria.svg'
-import { ReactComponent as Bacteria2 } from '../../resources/003-coccus.svg'
+import { ReactComponent as Bacteria2 } from '../../resources/bifidobacterium.svg'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';

@@ -100,7 +100,6 @@ function generateData(count, yrange) {
     }
 
     getHeatmap(params) {
-      debugger
       fetch('http://127.0.0.1:5000/lifestyleheatmap', {
         method: 'POST',
         mode: 'cors',
@@ -112,6 +111,8 @@ function generateData(count, yrange) {
           this.setState({
             series: json
           })
+          this.props.valueSetter(json)
+          console.log('called value setter from child')
         })
     }
 
