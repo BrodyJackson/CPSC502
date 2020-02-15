@@ -84,11 +84,21 @@ def generate_models():
         regression_models[target] = model
 
         predictions = model.predict(X)
+        print(model.params)
         print(model.summary())
         print(predictions)
 
-        generate_figures(target, df)
+        # generate_figures(target, df)
+
+    predictive_layer_results = {
+        'individual_regression_models': regression_models,
+        'lifestyle_factor_averages': lifestyle_factor_averages,
+        'phylum_averages': phylum_diversity_averages
+    }
+
+    return predictive_layer_results
 
 
 if __name__ == '__main__':
     generate_models()
+

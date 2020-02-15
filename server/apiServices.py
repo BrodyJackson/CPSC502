@@ -1,5 +1,5 @@
 import lifestyleconfig
-
+from server.models import diversity_predictor
 
 def diversity_calculation(lifestyle_factor):
     config = lifestyleconfig.lifestyle_effects["{0}".format(lifestyle_factor['attribute'])]
@@ -33,7 +33,7 @@ def diversity_calculation(lifestyle_factor):
 
 
 def determine_diversity_scores(params):
-    print('in first call ', params )
+    print('in first call ', params)
     heatmap_data = []
     for entry in params:
         print('entry is ', entry)
@@ -43,4 +43,10 @@ def determine_diversity_scores(params):
     return heatmap_data
 
 
+def determine_diversity_new():
+    predictive_layer_results = diversity_predictor.generate_models()
+    print(predictive_layer_results)
 
+
+if __name__ == '__main__':
+    determine_diversity_new()
