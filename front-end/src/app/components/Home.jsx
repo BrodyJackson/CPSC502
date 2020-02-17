@@ -40,8 +40,8 @@ export default class Home extends React.Component {
             },
             animalProteinValue: 0,
             plantProteinValue: 0,
-            complexCarbsValue: 0, 
-            refinedCarbsValue: 0, 
+            carbsValue: 0,
+            sugarValue: 0,
             saturatedFatsValue: 0, 
             unsaturatedFatsValue: 0
         }

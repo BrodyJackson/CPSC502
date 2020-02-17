@@ -17,12 +17,12 @@ export default class Results extends React.Component {
             loading: false,
             explainModal: false,
             allBacteria: allGenusList,
-            selectedBacteria: 'bifidobacterium',
+            selectedBacteria: 'Proteobacteria',
             values: [],
-            image1: ['bifidobacterium', 'bilophila', 'enterococcus', 'streptococcus'],
-            image2: ['lactobacillus', 'clostridium', 'faecalibacterium'],
-            image3: ['bacteroides', 'roseburia', 'eschericiaColi'],
-            image4: ['alistipes', 'eubacterium', 'helicobacterPylori']
+            image1: ['Bacteroidetes', 'Firmicutes'],
+            image2: ['Proteobacteria', 'Tenericutes'],
+            image3: ['Actinobacteria', 'Verrucomicrobia'],
+            image4: ['Cyanobacteria', 'Fusobacteria']
         }
         this.shouldBeLoading()
         console.log(this.props, ' props in results')

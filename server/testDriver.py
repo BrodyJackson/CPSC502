@@ -5,10 +5,10 @@ url = 'http://0.0.0.0:5000/lifestyleheatmap/'
 
 data = [
     {
-        'attribute' : 'stress',
-        'value' : 60,
-        'maxValue' : 100,
-        'type' : 'slider'
+        "attribute": "weight",
+        "value": 100,
+        "maxValue": 100,
+        "type": "slider"
     }
 ]
 

@@ -18,7 +18,7 @@ def calculate_heatmap_info():
     print(request, 'this is the request')
     data = request.get_json(force=True)
     print(data, ' this is the data')
-    heatmap_data = apiServices.determine_diversity_scores(data)
+    heatmap_data = apiServices.determine_diversity_new(data)
     return jsonify(heatmap_data)
 
 if __name__ == '__main__':

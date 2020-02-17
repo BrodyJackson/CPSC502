@@ -20,8 +20,8 @@ export default class DietInfo extends React.Component {
             foodCheckbox: false,
             animalProteinValue: 0,
             plantProteinValue: 0,
-            complexCarbsValue: 0, 
-            refinedCarbsValue: 0, 
+            carbsValue: 0,
+            sugarValue: 0,
             saturatedFatsValue: 0, 
             unsaturatedFatsValue: 0
         }
@@ -29,7 +29,7 @@ export default class DietInfo extends React.Component {
 
     // TODO: fix this function based on changes made to state being in home component
     checkDietPercentages(){
-        let values = ['animalProteinValue', 'plantProteinValue', 'complexCarbsValue', 'refinedCarbsValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
+        let values = ['animalProteinValue', 'plantProteinValue', 'carbsValue', 'sugarValue', 'saturatedFatsValue', 'unsaturatedFatsValue']
         let totalPercentage = 0
         values.forEach( (entry) => {
             let state = this.state
@@ -201,11 +201,11 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.props.handleSlider(value, 'complexCarbs') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'carbs') }
                             ></PrettoSlider>
                         </Grid>
                         <Grid item xs={5}>
-                            <Typography variant='subtitle2'>Refined Carbohydrates</Typography>
+                            <Typography variant='subtitle2'>Sugar</Typography>
                             <PrettoSlider
                                 className="slider"
                                 aria-label='Hours'
@@ -219,7 +219,7 @@ export default class DietInfo extends React.Component {
                                 ]}
                                 max={100}
                                 min={0}
-                                onChange={(event, value) => this.props.handleSlider(value, 'refinedCarbs') }
+                                onChange={(event, value) => this.props.handleSlider(value, 'sugar') }
                             ></PrettoSlider>
                         </Grid>
                     </Grid>

@@ -291,7 +291,7 @@ const plantprotein = {
     streptococcus: null,
 }
 
-const complexcarbs = {
+const carbs = {
     bifidobacterium: 'increase',
     lactobacillus: null, 
     bacteroides: 'decrease',
@@ -369,8 +369,8 @@ export const apiRequiredInfo = [
     {'attribute' : 'country', 'maxValue': '1', 'type':'select'},
     {'attribute' : 'animalProtein', 'maxValue': '100', 'type':'slider'},
     {'attribute' : 'plantProtein', 'maxValue': '100', 'type':'slider'},
-    {'attribute' : 'complexCarbs', 'maxValue': '100', 'type':'slider'},
-    {'attribute' : 'refinedCarbs', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'carbs', 'maxValue': '100', 'type':'slider'},
+    {'attribute' : 'sugar', 'maxValue': '100', 'type':'slider'},
     {'attribute' : 'saturatedFats', 'maxValue': '100', 'type':'slider'},
     {'attribute' : 'unsaturatedFats', 'maxValue': '100', 'type':'slider'},
     {'attribute' : 'dietCheckbox', 'maxValue': '1', 'type':'checkbox'},

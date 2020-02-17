@@ -128,19 +128,20 @@ function generateData(count, yrange) {
             if (results[`${record['attribute']}Value`][key] === true) count++
           }
           requestItem['value'] = count
-          requestItem['attribute'] = 'fermentedfood'
+          requestItem['attribute'] = 'fermentedFood'
           apiRequest.push(requestItem)
         }
         else if (record['attribute'] === 'dietCheckbox') {
-          for ( let key in results[`${record['attribute']}Value`] ) {
-            requestItem = {
-              'attribute': key,
-              'maxValue': 1,
-              'type': 'checkbox',
-              'value': results[`${record['attribute']}Value`][key] === true ? 1 : 0
-            }
-            apiRequest.push(requestItem)
-          }
+
+          // for ( let key in results[`${record['attribute']}Value`] ) {
+          //   requestItem = {
+          //     'attribute': key,
+          //     'maxValue': 1,
+          //     'type': 'checkbox',
+          //     'value': results[`${record['attribute']}Value`][key] === true ? 1 : 0
+          //   }
+          //   apiRequest.push(requestItem)
+          // }
         }
         else {
           requestItem['value'] = results[`${record['attribute']}Value`]

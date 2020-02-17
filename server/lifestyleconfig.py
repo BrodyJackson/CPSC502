@@ -292,7 +292,7 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'complexCarbs' : {
+    'carbs' : {
         'impact_scale': 0.5,
         'bifidobacterium' : 'increase',
         'lactobacillus' : 'null',
@@ -308,7 +308,7 @@ lifestyle_effects = {
         'helicobacterPylori' : 'null',
         'streptococcus' : 'null',
     },
-    'refinedCarbs' : {
+    'sugar' : {
         'impact_scale': 0.5,
         'bifidobacterium' : 'decrease',
         'lactobacillus' : 'decrease',
