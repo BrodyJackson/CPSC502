@@ -4,6 +4,7 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import linear_model
+import pickle
 
 predictive_columns = [
         'AGE_YEARS',
@@ -84,9 +85,9 @@ def generate_models():
         regression_models[target] = model
 
         predictions = model.predict(X)
-        print(model.params)
-        print(model.summary())
-        print(predictions)
+#         print(model.params)
+#         print(model.summary())
+#         print(predictions)
 
         # generate_figures(target, df)
 
@@ -96,9 +97,12 @@ def generate_models():
         'phylum_averages': phylum_diversity_averages
     }
 
-    return predictive_layer_results
 
+    with open('diversity_model.pickle', 'wb') as handle:
+        pickle.dump(predictive_layer_results, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    return
 
 if __name__ == '__main__':
     generate_models()
+    exit(0)
 

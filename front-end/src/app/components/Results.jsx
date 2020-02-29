@@ -14,7 +14,7 @@ export default class Results extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: false,
+            loading: true,
             explainModal: false,
             allBacteria: allGenusList,
             selectedBacteria: 'Proteobacteria',

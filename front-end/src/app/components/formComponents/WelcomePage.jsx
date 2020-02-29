@@ -24,7 +24,7 @@ export default class WelcomePage extends React.Component {
             <Grid item md style={{textAlign:'start', paddingLeft: '10%'}}>
               <Typography className={'welcomeMessage'} variant='h1'>Welcome!</Typography>
               <Typography variant='h4' style={{marginTop:'3vh'}}>Let's learn about your gut health</Typography>
-              <Typography variant='h6' style={{ marginTop:'3vh', fontWeight:300 }}>New links between the gut microbiome and human health are being discovered Everyday. This tool helps to identify how your individual lifestyle factors contribute to your microbiome, and provides personalized insights into the bacterial environment of your gut.</Typography>
+              <Typography variant='h6' style={{ marginTop:'3vh', fontWeight:300 }}>New links between the gut microbiome and human health are being discovered everyday. This tool helps to identify how your individual lifestyle factors contribute to your microbiome, and provides personalized insights into the bacterial environment of your gut.</Typography>
             </Grid>
             <Grid item md>
               <Bacteria1 style={{ width: '100%', maxHeight: '35vh'}}></Bacteria1>
@@ -37,8 +37,8 @@ export default class WelcomePage extends React.Component {
             <Grid item md>
               <Typography variant='h4' style={{color:'#74c7c5'}}>Why do I need this?</Typography>
               <Typography variant='h6' style={{ marginTop:'3vh', marginLeft:'10%', fontWeight:300, textAlign:'start' }}>
-                Changes in lifestyle are increasingly being associated with differences in the bacterial species present in the gut. Different factors such as diet, medication, or exercise are now understood to alter the gut environment making it more or less hospitable to different bacterial species. Depending on the species, these bacterial populations can have both positive and negative affects on our overall health, contributing to a wide variety of human process such as metabolic function or development of chronic disease <br></br><br></br>
-                The goal of this project, which began as an undergraduate reasearch project at the University of Calgary is to provide insights into gut health with the purpose of educating individuals on how the choices they make concerning lifestyle factors are impacting these bacterial populations, and the outcomes that these populations have been tied to. In this way, a user of the tool may be better equipped to make informed decisions for promoting a healthy microbiome
+                Changes in lifestyle are increasingly being associated with differences in the bacterial species present in the gut. We now understand that different factors such as diet, medication, or exercise alter the gut environment making it more or less hospitable to different bacterial species. Depending on the species, these bacterial populations can have both positive and negative affects on our overall health, contributing to a wide variety of human process such as metabolic function or development of chronic disease. <br></br><br></br>
+                The goal of this project, which began as an undergraduate reasearch project at the University of Calgary is to provide personal insights into gut health. The hope is that this will help educate individuals on how the choices they make concerning lifestyle factors are impacting these bacterial populations, and the health impacts these populations have been tied to. Ideally,  a user of the tool will then be better equipped to make informed decisions that promote a healthy gut microbiome.
               </Typography>
             </Grid>
           </Grid>
