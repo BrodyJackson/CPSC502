@@ -148,7 +148,7 @@ function generateData(count, yrange) {
           apiRequest.push(requestItem)
         }
       })
-      console.log(apiRequest)
+      console.log(apiRequest, 'this is the api request')
       this.getHeatmap(apiRequest)
     }
 
