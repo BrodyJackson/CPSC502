@@ -57,34 +57,37 @@ function generateData(count, yrange) {
           // },
           plotOptions: {
             heatmap: {
-              shadeIntensity: 0.5,
+              // enableShades: false,
+              shadeIntensity: 0.25,
+              // reverseNegativeShade: true,
               colorScale: {
                 ranges: [
                   {
-                    from: 0,
-                    to: 25,
+                    from: -10,
+                    to: -5.6,
                     name: 'extreme',
                     color: '#FF0000'
                   },
                   {
-                    from: 25,
-                    to: 50,
+                    from: -5.5,
+                    to: -0.1,
                     name: 'low',
                     color: '#FFB200'
                   },
                   {
-                    from: 50,
-                    to: 75,
+                    from: 0,
+                    to: 5.5,
                     name: 'normal',
                     color: '#128FD9'
                   },
                   {
-                    from: 75,
-                    to: 100,
+                    from: 5.6,
+                    to: 10,
                     name: 'high',
                     color: '#00A100'
                   },
-                ]
+                ],
+                inverse: true
               }
             }
           },

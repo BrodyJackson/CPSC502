@@ -14,7 +14,7 @@ export default class Results extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: true,
+            loading: false, //set to true to enable loading spinner
             explainModal: false,
             allBacteria: allGenusList,
             selectedBacteria: 'Proteobacteria',
@@ -71,10 +71,10 @@ export default class Results extends React.Component {
         this.state.values.forEach((attribute) => {
             console.log(attribute)
             attribute['data'].forEach((species) => {
-                if (species['x'] === currentlySelected && species['y'] > 50) {
+                if (species['x'] === currentlySelected && species['y'] > 0) {
                     increaseAttributes.push(<p>{attribute['name']}</p>)
                 }
-                if (species['x'] === currentlySelected && species['y'] < 50) {
+                if (species['x'] === currentlySelected && species['y'] < 0) {
                     decreaseAttributes.push(<p>{attribute['name']}</p>)
                 }
             })
