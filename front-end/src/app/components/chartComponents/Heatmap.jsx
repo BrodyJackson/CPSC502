@@ -110,7 +110,10 @@ function generateData(count, yrange) {
       })
         .then( response => response.json())
         .then( json => {
-          console.log(json)
+          console.log(json, ' this is the response')
+          json.forEach(response => {
+            response['name'] = response['name'].charAt(0).toUpperCase() + response['name'].slice(1)
+          })
           this.setState({
             series: json
           })
@@ -125,7 +128,7 @@ function generateData(count, yrange) {
       console.log(apiRequiredInfo)
       apiRequiredInfo.forEach( record => {
         let requestItem = record
-        if (record['attribute'] === 'foodCheckbox') {
+        if (record['attribute'] === 'foodCheckbox' || record['attribute'] === 'fermentedFood') {
           let count = 0
           for ( let key in results[`${record['attribute']}Value`] ) {
             if (results[`${record['attribute']}Value`][key] === true) count++
@@ -133,18 +136,6 @@ function generateData(count, yrange) {
           requestItem['value'] = count
           requestItem['attribute'] = 'fermentedFood'
           apiRequest.push(requestItem)
-        }
-        else if (record['attribute'] === 'dietCheckbox') {
-
-          // for ( let key in results[`${record['attribute']}Value`] ) {
-          //   requestItem = {
-          //     'attribute': key,
-          //     'maxValue': 1,
-          //     'type': 'checkbox',
-          //     'value': results[`${record['attribute']}Value`][key] === true ? 1 : 0
-          //   }
-          //   apiRequest.push(requestItem)
-          // }
         }
         else {
           requestItem['value'] = results[`${record['attribute']}Value`]

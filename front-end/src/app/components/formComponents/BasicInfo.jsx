@@ -63,7 +63,7 @@ export default class BasicInfo extends React.Component {
                             marks={[
                                 {value:75, label: '75CM'},
                                 {value:125, label: '100CM'},
-                                {value:150, label: '150CM'},
+                                {value:175, label: '175CM'},
                             ]}
                             max={200}
                             min={50}
@@ -73,21 +73,21 @@ export default class BasicInfo extends React.Component {
                 </div>
                 <div className="formElement">
                     <Grid item >
-                        <Typography variant='h5'>What is your weight (lbs)</Typography>
+                        <Typography variant='h5'>What is your weight (Kg)</Typography>
                     </Grid>
                     <Grid item >
                         <PrettoSlider
                             className="slider"
                             aria-label='Height'
-                            defaultValue={50}
+                            defaultValue={10}
                             valueLabelDisplay="auto"
                             marks={[
-                                {value:100, label: '100 lbs'},
-                                {value:200, label: '200 lbs'},
-                                {value:300, label: '300 lbs'},
+                                {value:50, label: '50 Kg'},
+                                {value:100, label: '200 kg'},
+                                {value:150, label: '300 kg'},
                             ]}
-                            max={400}
-                            min={50}
+                            max={200}
+                            min={10}
                             onChange={(event, value) => this.props.handleSlider(value, 'weight') }
                         ></PrettoSlider>
                     </Grid>
