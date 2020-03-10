@@ -10,12 +10,15 @@ def handle_incoming_params(params):
     total_fat = 0
     parsed_entries = []
     for entry in params:
-        if 'protein' in entry['attribute']:
+        if 'Protein' in entry['attribute']:
             total_protein += entry['value']
+            print(total_protein, ' total protein updated')
             continue
-        if 'fat' in entry['attribute']:
+        if 'Fat' in entry['attribute']:
             total_fat += entry['value']
+            print(total_fat, ' total fat updated')
             continue
+
         parsed_entries.append(entry)
     parsed_entries.append({
         'attribute': 'protein',
@@ -29,7 +32,6 @@ def handle_incoming_params(params):
         'maxValue': '100',
         'type': 'slider'
     })
-    #     print(parsed_entries, ' params after being formatted')
     return parsed_entries
 
 
@@ -39,22 +41,22 @@ def diversity_calculation(lifestyle_factor):
     series = []
     scaled_change_amount = 50
     if lifestyle_factor['type'] == 'slider' or lifestyle_factor['type'] == 'checkbox':
-        print(lifestyle_factor, ' lifestyle_factor')
+
         slider_level = (float(lifestyle_factor['value'])) / float((lifestyle_factor['maxValue']))
-        print(slider_level, ' slider level')
+
         main_change_amount = slider_level * 50
-        print(main_change_amount, ' main_change')
+
         scaled_change_amount = impact_scale * main_change_amount
-        print(scaled_change_amount)
+
     elif lifestyle_factor['type'] == 'select':
         select_option = lifestyle_factor['value']
         scaled_change_amount = scaled_change_amount * impact_scale
-    print(config, ' config here')
-    print(scaled_change_amount, ' change amount here')
+
+
     for genus in config:
         if genus != 'impact_scale':
-            print(genus)
-            print(config['{0}'.format(genus)])
+
+
             value = 50
             if config['{0}'.format(genus)] == 'increase':
                 value = value + scaled_change_amount
@@ -71,7 +73,6 @@ def diversity_calculation_new(lifestyle_factor, predictive_results):
     for phylum in predictive_results['individual_regression_models']:
 
         regression_coefficients = predictive_results['individual_regression_models'][phylum].params
-        print(regression_coefficients)
         phylum_average_diversity = predictive_results['phylum_averages'][phylum]
         lifestyle_factor_average = predictive_results['lifestyle_factor_averages']
         attribute_average = lifestyle_factor_average[attribute_map[lifestyle_factor['attribute']]]
@@ -96,7 +97,7 @@ def diversity_calculation_new(lifestyle_factor, predictive_results):
 
 
 def convert_entry_format(entry):
-    print(entry)
+    print(entry, 'entry')
     if entry['value'] == 'No' or entry['value'] == '':
         entry['value'] = 0
         entry['average'] = 0.5
@@ -120,9 +121,8 @@ def determine_diversity_scores(params):
 def determine_diversity_new(params):
     with open('models/diversity_model.pickle', 'rb') as handle:
         predictive_layer_results = pickle.load(handle)
-
-    print(params, ' these are the params')
     normalized_params = handle_incoming_params(params)
+    print(normalized_params, ' these are after normalization')
     heatmap_data = []
     for entry in normalized_params:
         entry = convert_entry_format(entry)

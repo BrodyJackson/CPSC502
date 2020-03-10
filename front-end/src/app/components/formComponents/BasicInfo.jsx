@@ -47,7 +47,7 @@ export default class BasicInfo extends React.Component {
                             max={100}
                             min={5}
                             onChange={(event, value) => this.props.handleSlider(value, 'age') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className="formElement">
@@ -68,7 +68,7 @@ export default class BasicInfo extends React.Component {
                             max={200}
                             min={50}
                             onChange={(event, value) => this.props.handleSlider(value, 'height') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className="formElement">
@@ -89,7 +89,7 @@ export default class BasicInfo extends React.Component {
                             max={200}
                             min={10}
                             onChange={(event, value) => this.props.handleSlider(value, 'weight') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className='formElement'>

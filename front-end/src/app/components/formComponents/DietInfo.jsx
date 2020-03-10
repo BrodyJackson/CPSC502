@@ -65,7 +65,7 @@ export default class DietInfo extends React.Component {
                                     max={10}
                                     min={0}
                                     onChange={(event, value) => this.props.handleSlider(value, 'vegetables') }
-                                ></PrettoSlider>
+                                />
                             </Grid>
                             <Grid item xs={5}>
                                 <Typography variant='subtitle'>Fruits</Typography>
@@ -80,7 +80,7 @@ export default class DietInfo extends React.Component {
                                     max={10}
                                     min={0}
                                     onChange={(event, value) => this.props.handleSlider(value, 'fruits') }
-                                ></PrettoSlider>
+                                />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -142,7 +142,7 @@ export default class DietInfo extends React.Component {
                 </div>
                 <div className="formElement">
                     <Grid item >
-                        <Typography variant='h5'>What percentage of your total diet is contributed to the following?</Typography>
+                        <Typography variant='h5'>Roughly how much of your diet is contributed to the following?</Typography>
                         {this.checkDietPercentages()}
                     </Grid>
                     <Typography variant='subtitle'>Proteins</Typography>
@@ -155,33 +155,31 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
+                                    {value:100, label: '100g'},
+                                    {value:200, label: '200g'},
+                                    {value:300, label: '300g'},
                                 ]}
-                                max={100}
+                                max={400}
                                 min={0}
                                 onChange={(event, value) => this.props.handleSlider(value, 'animalProtein') }
-                            ></PrettoSlider>
+                            />
                         </Grid>
                         <Grid item xs={5}>
                             <Typography variant='subtitle2'>Plant Based Proteins</Typography>
                             <PrettoSlider
-                                className="slider"
-                                aria-label='Hours'
-                                defaultValue={0}
-                                valueLabelDisplay="auto"
-                                marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
-                                ]}
-                                max={100}
-                                min={0}
-                                onChange={(event, value) => this.props.handleSlider(value, 'plantProtein') }
-                            ></PrettoSlider>
+                               className="slider"
+                               aria-label=''
+                               defaultValue={0}
+                               valueLabelDisplay="auto"
+                               marks={[
+                                   {value:100, label: '100g'},
+                                   {value:200, label: '200g'},
+                                   {value:300, label: '300g'},
+                               ]}
+                               max={400}
+                               min={0}
+                               onChange={(event, value) => this.props.handleSlider(value, 'plantProtein') }
+                            />
                         </Grid>
                     </Grid>
                     <Typography variant='subtitle'>Carbohydrates</Typography>
@@ -194,33 +192,31 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
+                                    {value:100, label: '100g'},
+                                    {value:200, label: '200g'},
+                                    {value:300, label: '300g'},
                                 ]}
-                                max={100}
+                                max={400}
                                 min={0}
                                 onChange={(event, value) => this.props.handleSlider(value, 'carbs') }
-                            ></PrettoSlider>
+                            />
                         </Grid>
                         <Grid item xs={5}>
                             <Typography variant='subtitle2'>Sugar</Typography>
                             <PrettoSlider
                                 className="slider"
-                                aria-label='Hours'
+                                aria-label=''
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
+                                    {value:100, label: '100g'},
+                                    {value:200, label: '200g'},
+                                    {value:300, label: '300g'},
                                 ]}
-                                max={100}
+                                max={400}
                                 min={0}
                                 onChange={(event, value) => this.props.handleSlider(value, 'sugar') }
-                            ></PrettoSlider>
+                            />
                         </Grid>
                     </Grid>
                     <Typography variant='subtitle'>Fats</Typography>
@@ -233,33 +229,31 @@ export default class DietInfo extends React.Component {
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
+                                    {value:100, label: '100g'},
+                                    {value:200, label: '200g'},
+                                    {value:300, label: '300g'},
                                 ]}
-                                max={100}
+                                max={400}
                                 min={0}
                                 onChange={(event, value) => this.props.handleSlider(value, 'saturatedFats') }
-                            ></PrettoSlider>
+                            />
                         </Grid>
                         <Grid item xs={5}>
                             <Typography variant='subtitle2'>Unsaturated Fats</Typography>
                             <PrettoSlider
                                 className="slider"
-                                aria-label='Percentage'
+                                aria-label=''
                                 defaultValue={0}
                                 valueLabelDisplay="auto"
                                 marks={[
-                                    {value:20, label: '20%'},
-                                    {value:40, label: '40%'},
-                                    {value:60, label: '60%'},
-                                    {value:80, label: '80%'},
+                                    {value:100, label: '100g'},
+                                    {value:200, label: '200g'},
+                                    {value:300, label: '300g'},
                                 ]}
-                                max={100}
+                                max={400}
                                 min={0}
                                 onChange={(event, value) => this.props.handleSlider(value, 'unsaturatedFats') }
-                            ></PrettoSlider>
+                            />
                         </Grid>
                     </Grid>
                 </div>

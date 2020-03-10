@@ -68,7 +68,7 @@ export default class LifestyleInfo extends React.Component {
                             max={20}
                             min={0}
                             onChange={(event, value) => this.props.handleSlider(value, 'exercise') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className="formElement">
@@ -90,7 +90,7 @@ export default class LifestyleInfo extends React.Component {
                             max={10}
                             min={0}
                             onChange={(event, value) => this.props.handleSlider(value, 'sleep') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className="formElement">
@@ -112,7 +112,7 @@ export default class LifestyleInfo extends React.Component {
                             max={10}
                             min={0}
                             onChange={(event, value) => this.props.handleSlider(value, 'stressed') }
-                        ></PrettoSlider>
+                        />
                     </Grid>
                 </div>
                 <div className='formElement'>
