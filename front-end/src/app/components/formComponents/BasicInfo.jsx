@@ -18,12 +18,9 @@ export default class BasicInfo extends React.Component {
         }
     }
 
-    //this is example of how dropdowns should be done so that the value is showing properly
     dropDownHandler(event, value) {
-      console.log('dropdown handler')
       this.setState({genderDropdown : value.props.value})
       this.props.handleDropdown(value, 'gender')
-      console.log(this.state)
     }
 
     render(){

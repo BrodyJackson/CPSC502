@@ -103,14 +103,13 @@ function generateData(count, yrange) {
     }
 
     getHeatmap(params) {
-      fetch('http://127.0.0.1:5000/lifestyleheatmap', {
+      fetch('https://microbiome-predictor-server.herokuapp.com/lifestyleheatmap', {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(params)
       })
         .then( response => response.json())
         .then( json => {
-          console.log(json, ' this is the response')
           json.forEach(response => {
             response['name'] = response['name'].charAt(0).toUpperCase() + response['name'].slice(1)
           })
@@ -118,14 +117,11 @@ function generateData(count, yrange) {
             series: json
           })
           this.props.valueSetter(json)
-          console.log('called value setter from child')
         })
     }
 
     prepareAPICall(results) {
       let apiRequest = []
-      console.log(results)
-      console.log(apiRequiredInfo)
       apiRequiredInfo.forEach( record => {
         let requestItem = record
         if (record['attribute'] === 'foodCheckbox' || record['attribute'] === 'fermentedFood') {

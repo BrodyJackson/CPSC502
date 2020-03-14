@@ -22,7 +22,6 @@ export default class LifestyleInfo extends React.Component {
     }
 
     dropDownHandler(event, value, type) {
-        console.log('dropdown handler')
         switch (type) {
             case 'smoking':
                 this.setState({smokingDropDown: value.props.value})
@@ -47,7 +46,6 @@ export default class LifestyleInfo extends React.Component {
 
     render(){
         let countryMenuItems = this.prepareCountryMenu()
-        console.log(countryMenuItems)
         return (
             <>
                 <div className="formElement">

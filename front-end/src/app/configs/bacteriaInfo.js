@@ -15,7 +15,7 @@ export const bacteriaInfo = {
     },
     Actinobacteria : {
         description: 'Actinobacteria are one the four major phyla of the gut microbiota and, although they represent only a small percentage, are pivotal in the maintenance of gut homeostasis. During the last decade many studies focused the attention on Actinobacteria, especially on their role both in gastrointestinal and systemic diseases and on their possible therapeutic use. In fact, classes of this phylum, especially Bifidobacteria, are widely used as probiotic demonstrating beneficial effects in many pathological conditions, even if larger in vivo studies are needed to confirm such encouraging results.',
-        location: ['Intestine, '],
+        location: ['Intestine'],
         health_benefits: ['help process fiber in diet', 'maintanence of healthy body weight', 'reduce infections in the gut', 'help maintain gut homeostasis'],
         health_impacts: ['none'],
         desired_outcome: 'increase'
@@ -33,29 +33,29 @@ export const bacteriaInfo = {
           'A higher level of Lactobacillus (of the Firmicutes phylum) has been found in obese patients and in one study, obese patients put on weight loss diets showed a reduced amount of Firmicutes within their guts. A higher relative abundance of Firmicutes was seen in mice fed a western diet (high fat/high sugar) than in mice fed a standard low fat/ high polysaccharide diet.',
         location: ['GI Tract', 'Vagina'],
         health_benefits: ['Reduction in inflammatory conditions such as IBS', ''],
-        health_impacts: ['Large implications in obesity', 'depression disorder',],
+        health_impacts: ['Large implications in obesity', 'Depression disorder',],
         desired_outcome: 'increase'
     },
     Tenericutes : {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        location: ['GI Tract', 'Vagina'],
-        health_benefits: ['increase in healthy immune responses', 'reduction of colitis inflammation', 'reduce severity of IBS'],
-        health_impacts: ['none'],
-        desired_outcome: 'increase'
+        description: 'Ternicutes are a phylum of bacteria which contain populations that are very small and lack a cell wall. These species have a parasitic relationship within humans and can contribute to respiratory or urological issues. ',
+        location: ['Respiratory and Urogenital tracts', 'GI tract'],
+        health_benefits: ['none'],
+        health_impacts: ['Respiratory disease', 'Weakened immune response'],
+        desired_outcome: 'decrease'
     },
-    Verrucomicrobia : {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        location: ['GI Tract', 'Vagina'],
-        health_benefits: ['increase in healthy immune responses', 'reduction of colitis inflammation', 'reduce severity of IBS'],
+    Verrumicrobia : {
+        description: 'Verrumicrobia are a small phylum of bacteria containing only one species, which has a mucosal degrading role in the human gut. This microorganism was recently associated with anti-inflammatory and immunostimulating function that help to maintain gut equilibrium in humans. Growth of this bacteria is actually favourable by low nutrient availability, and populations increase during periods of fasting and malnutrition',
+        location: ['GI Tract', 'Intestines'],
+        health_benefits: ['Increase in healthy immune responses', 'Decrease in gut inflammation', 'Improved gut barrier function'],
         health_impacts: ['none'],
         desired_outcome: 'increase'
     },
     Fusobacteria : {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        location: ['GI Tract', 'Vagina'],
-        health_benefits: ['increase in healthy immune responses', 'reduction of colitis inflammation', 'reduce severity of IBS'],
-        health_impacts: ['none'],
-        desired_outcome: 'increase'
+        description: 'Species within the Fusobacteria phylum incites a variety of severe pathogenic effects in humans. Harmul populations have been implicated with ulcer formation or amniotic infections and premature labor in human pregnancies. They have also been linked to colon cancers, gut inflammatory response, and breakdown of the gut barrier. While also found in the gut, they are primarily located in the oral cavity where they contribute to a variety of gum diseases',
+        location: ['Oral cavity', 'GI tract'],
+        health_benefits: ['none'],
+        health_impacts: ['Ulcer formation', 'Amniotic infection and premature labor', 'Colon cancer', 'Increase in inflammatory conditions', 'Breakdown of gut barrier'],
+        desired_outcome: 'decrease'
     }
 }
 

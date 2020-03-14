@@ -51,21 +51,18 @@ export default class Home extends React.Component {
         let currentState = this.state
         currentState[`${id}Value`] = value
         this.setState(currentState)
-        console.log(this.state)
     }
 
     handleDropdownChange = (value, id) => {
         let currentState = this.state
         currentState[`${id}Value`] = value.props.value
         this.setState(currentState)
-        console.log(this.state)
     }
 
     handleCheckboxChange = (value, id, type, blah) => {
         let currentState = this.state
         currentState[`${id}Value`][type] = value
         this.setState(currentState)
-        console.log(this.state)
     }
 
 

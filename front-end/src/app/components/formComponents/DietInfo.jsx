@@ -36,7 +36,6 @@ export default class DietInfo extends React.Component {
             let number = state[entry]
             totalPercentage = totalPercentage + number
         })
-        console.log(totalPercentage)
         if ((totalPercentage !== 0) && (totalPercentage !== 100)) {
             return <Typography variant='caption'>Individual Percentages Must Sum to 100%</Typography>
         }
