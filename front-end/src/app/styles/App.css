@@ -22,4 +22,36 @@
 
 .bacteriaInfoItem {
   margin: 25px;
+  width: auto !important;
+}
+
+.resultsMargins {
+  margin-left: 10% !important
+}
+
+@media only screen and (max-width: 1280px) {
+  .magnifyImg {
+    display: none;
+  }
+  .resultsSecondRow{
+    margin-top:5vh !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .resultsMargins {
+    margin-left: 8% !important
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .resultsMargins {
+    margin-left: 0% !important
+  }
+  .secondSubHeading {
+    margin-left: 0% !important
+  }
+  #chart {
+    margin-left: -6% !important
+  }
 }

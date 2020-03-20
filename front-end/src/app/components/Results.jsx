@@ -13,7 +13,7 @@ export default class Results extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: true, //set to true to enable loading spinner
+            loading: false, //set to true to enable loading spinner
             explainModal: false,
             allBacteria: allGenusList,
             selectedBacteria: 'Proteobacteria',
@@ -114,7 +114,7 @@ export default class Results extends React.Component {
               }
               {this.state.loading == false &&
                 <>
-                    <Grid container direction='row' className='resultsContainer' justify="space-around">
+                    <Grid container direction='row' className='resultsContainer' justify="space-between">
                         <Modal open={this.state.explainModal} onClose={() => this.explanationModal()} style={{overflowY:'scroll'}} className={'explanationModal'}>
                             <Grid container className={'explanationModalContainer'}>
                                 <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What are these diversity numbers?</Typography></Grid>
@@ -131,23 +131,23 @@ export default class Results extends React.Component {
                                 </Typography>
                             </Grid>
                         </Modal>
-                        <Grid item lg={8} style={{marginTop:'5vh'}}>
+                        <Grid item lg={8} className={'resultsMargins'} style={{marginTop:'5vh'}}>
                             <Grid container direction={'column'}>
-                                <Grid item><Typography variant="h2" style={{ marginLeft: '10%', textAlign: 'start', color: '#52af77'}}>Nice to Meet You!</Typography></Grid>
+                                <Grid item><Typography variant="h2" style={{ textAlign: 'start', color: '#52af77'}}>Nice to Meet You!</Typography></Grid>
                                 <Grid item>
-                                    <Typography variant='h6' style={{marginLeft:'10%', fontWeight:300, textAlign:'start' }}>
+                                    <Typography variant='h6' style={{ paddingTop:'2vh', fontWeight:300, textAlign:'start' }}>
                                         Here's a snapshot of your microbiome! We've used the unique lifestyle information you provided to predict the diversity of different bacterial populations in your gut
                                     </Typography>
                                 </Grid>
-                                <Grid item style={{marginTop:'5vh', marginLeft:'10%', textAlign:'start'}}><Button color={'primary'} variant={'outlined'} onClick={() => this.explanationModal()}>What does this mean?</Button></Grid>
+                                <Grid item style={{marginTop:'5vh', textAlign:'start'}}><Button color={'primary'} variant={'outlined'} onClick={() => this.explanationModal()}>What does this mean?</Button></Grid>
                             </Grid>
                         </Grid>
                         <Grid item lg={2} style={{marginTop:'5vh'}}>
-                            <Bacteria style={{width: '100%', maxHeight: '35vh'}}></Bacteria>
+                            <Bacteria className={'magnifyImg'} style={{width: '100%', maxHeight: '35vh'}}></Bacteria>
                         </Grid>
                     </Grid>
-                    <Grid container direction='column' alignItems='space-evenly' style={{marginLeft:'11%', marginBottom:'5vh'}}>
-                        <Grid item lg={8} style={{marginTop: '9vh'}}>
+                    <Grid container direction='column' alignItems='space-evenly' className={'resultsMargins'} style={{marginBottom:'5vh'}}>
+                        <Grid item lg={8} className={'resultsSecondRow'} style={{marginTop: '9vh'}}>
                             <Typography variant="h4" style={{  fontWeight:300, textAlign: 'start'}}>Bacterial Diversity</Typography>
                         </Grid>
                         <Grid item lg={6} style={{marginTop: '1vh'}}>
@@ -157,7 +157,7 @@ export default class Results extends React.Component {
                     <Heatmap surveyResults={this.props.currentFormItems} valueSetter={(value) => this.setAPIResponse(value)}></Heatmap>
                     <Grid container direction='column'>
                         <Grid item xs={10}>
-                            <Grid container direction='column' alignItems='space-evenly' style={{marginLeft:'13%', marginBottom:'2vh'}}>
+                            <Grid container direction='column' alignItems='space-evenly' className={'secondSubHeading'} style={{marginLeft:'12%', marginBottom:'2vh'}}>
                                 <Grid item lg={8} style={{marginTop: '5vh'}}>
                                     <Typography variant="h4" style={{  fontWeight:300, textAlign: 'start'}}>Let's learn more about these bacteria!</Typography>
                                 </Grid>
@@ -166,8 +166,8 @@ export default class Results extends React.Component {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item style={{textAlign:'start', marginLeft: '11%'}}>
-                            <FormControl variant='outlined' style={{marginTop: '3vh', width:'15%'}}>
+                        <Grid item className={'resultsMargins'} style={{textAlign:'start'}}>
+                            <FormControl variant='outlined' style={{marginTop: '3vh'}}>
                               <Select
                                 value={this.state.selectedBacteria}
                                 onChange={(event,value) => this.selectMenuChange(event,value)}
@@ -182,7 +182,7 @@ export default class Results extends React.Component {
                         <Grid container direction='row' className={'bacteriaInfoItem'}>
                             <Grid item xs={8}>
                                 <Typography variant="h4" style={{ color: '#52af77', fontWeight:300, textAlign: 'start'}}> Overview </Typography>
-                                <Typography variant="h6" style={{ marginTop: 10, fontWeight:300, textAlign: 'start'}}> {bacteriaInfo[this.state.selectedBacteria]['description']} </Typography>
+                                <Typography variant="h6" style={{ marginTop: '2.5vh', fontWeight:300, textAlign: 'start'}}> {bacteriaInfo[this.state.selectedBacteria]['description']} </Typography>
                                 <Typography variant="h6" style={{ marginTop: 10, fontWeight:300, textAlign: 'start'}}> You should be attempting to <b style={{color:'#3f51b5'}}>{bacteriaInfo[this.state.selectedBacteria]['desired_outcome']}</b> the diversity of this bacteria, which is located in the: <b style={{color:'#3f51b5'}}>{bacteriaInfo[this.state.selectedBacteria]['location']}</b>  </Typography>
                             </Grid>
                             <Grid item xs={4}>

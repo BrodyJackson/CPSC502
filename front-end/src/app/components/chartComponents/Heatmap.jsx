@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts'
 import { allLifestyleImpacts, apiRequiredInfo } from '../../configs/lifestyleImpactsConfig.js'
 import { allGenusList } from '../../configs/bacteriaInfo.js'
 import { CircularProgress, Grid, Typography } from '@material-ui/core'
+import '../../styles/App.css'
 const axios = require('axios').default
 
 function generateData(count, yrange) {
