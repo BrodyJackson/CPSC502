@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, CircularProgress, Typography, Button, Modal, Select, FormControl, MenuItem } from '@material-ui/core';
-import HeaderCell from './HeaderCell.jsx'
 import '../styles/App.css'
 import Heatmap from './chartComponents/Heatmap.jsx'
 import { ReactComponent as Bacteria } from '../resources/005-bacteria-2.svg'
@@ -14,7 +13,7 @@ export default class Results extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: false, //set to true to enable loading spinner
+            loading: true, //set to true to enable loading spinner
             explainModal: false,
             allBacteria: allGenusList,
             selectedBacteria: 'Proteobacteria',
@@ -34,7 +33,7 @@ export default class Results extends React.Component {
     }
 
     shouldBeLoading = () => {
-        if (this.state.loading != 0){ 
+        if (this.state.loading != 0){
            const timer = setTimeout(() => {
                this.setState({loading: false})
            }, 10000)
@@ -120,7 +119,7 @@ export default class Results extends React.Component {
                             <Grid container className={'explanationModalContainer'}>
                                 <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What are these diversity numbers?</Typography></Grid>
                                 <Typography variant='h6' style={{ paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
-                                    We've scaled the predicted change in bacterial numbers caused by each lifestyle factor across Phylum types. These values range from severity of -10 to 10, with a value of 0 indicating no effect. Values that are negative indicate a lifestyle element is decreasing the prevelence of that population in the gut, while positive values mean the opposite.
+                                    We've scaled the predicted change in bacterial numbers caused by each lifestyle factor across Phylum types. These values range from severity of -10 to 10, with a value of 0 indicating no effect. Values that are negative indicate a lifestyle element is decreasing the prevalence of that population in the gut, while positive values mean the opposite.
                                 </Typography>
                                 <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>How were these numbers calculated?</Typography></Grid>
                                 <Typography variant='h6' style={{  paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>

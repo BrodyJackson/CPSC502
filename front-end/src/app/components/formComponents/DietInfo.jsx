@@ -1,15 +1,9 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { Slider } from '@material-ui/core';
 import '../../styles/Forms.css'
 import {PrettoSlider, classes} from '../../styles/Forms.js'
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Select from '@material-ui/core/Select';
 
 
 
@@ -48,7 +42,7 @@ export default class DietInfo extends React.Component {
                 <div className="formElement">
                     <Grid container direction="column">
                         <Grid item>
-                            <Typography variant='h5'>How servings of fresh Fruit and Vegetables do you eat per day?</Typography>
+                            <Typography variant='h5'>How many servings of fresh fruit and vegetables do you eat per day?</Typography>
                         </Grid>
                         <Grid container justify="space-evenly">
                             <Grid item xs={5}>
@@ -86,7 +80,7 @@ export default class DietInfo extends React.Component {
                 </div>
                 <div className="formElement">
                     <Grid item >
-                        <Typography variant='h5'>Please seelect all of the following which you eat regularily</Typography>
+                        <Typography variant='h5'>Please select all of the following which you eat regularly</Typography>
                     </Grid>
                     <Grid container>
                         <Grid item xs={4}>

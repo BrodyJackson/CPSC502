@@ -47,19 +47,9 @@ function generateData(count, yrange) {
           chart: {
             height: 1000
           },
-          // yaxis: {
-          //   labels: {
-          //     minHeight: 20,
-          //     style: {
-          //       fontSize: '14px'
-          //     }
-          //   }
-          // },
           plotOptions: {
             heatmap: {
-              // enableShades: false,
               shadeIntensity: 0.25,
-              // reverseNegativeShade: true,
               colorScale: {
                 ranges: [
                   {
@@ -148,11 +138,17 @@ function generateData(count, yrange) {
 
       return (
         <>
-        {this.state.series !== undefined &&
-          <div id="chart">
-            <ReactApexChart options={this.state.options} series={this.state.series} type="heatmap" height="350"/>
-          </div>
-        }
+          {this.state.series === undefined &&
+            <Grid container direction="column" className="loadingContainerResults" justify="center" spacing={5}>
+              <Grid item><Typography variant="h6">Diversity predictions are taking longer than usual...</Typography></Grid>
+              <Grid item><CircularProgress size={50} ></CircularProgress></Grid>
+            </Grid>
+          }
+          {this.state.series !== undefined &&
+            <div id="chart">
+              <ReactApexChart options={this.state.options} series={this.state.series} type="heatmap" height="350"/>
+            </div>
+          }
         </>
       );
     }

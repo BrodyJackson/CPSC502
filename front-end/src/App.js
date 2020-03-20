@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Index></Index>
     </div>
-  );
+  )
 }
 
 export default App;

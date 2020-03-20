@@ -1,14 +1,11 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { Slider } from '@material-ui/core';
 import '../../styles/Forms.css'
-import {PrettoSlider, classes} from '../../styles/Forms.js'
-import InputLabel from '@material-ui/core/InputLabel';
+import {PrettoSlider} from '../../styles/Forms.js'
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { CountryRegionData } from 'react-country-region-selector';
 
 
 export default class LifestyleInfo extends React.Component {
@@ -93,7 +90,7 @@ export default class LifestyleInfo extends React.Component {
                 </div>
                 <div className="formElement">
                     <Grid item >
-                        <Typography variant='h5'>How Stresed are you on a daily basis?</Typography>
+                        <Typography variant='h5'>How stressed are you on a daily basis?</Typography>
                     </Grid>
                     <Grid item >
                         <PrettoSlider

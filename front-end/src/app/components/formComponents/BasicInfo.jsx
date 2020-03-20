@@ -1,11 +1,8 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { Slider } from '@material-ui/core';
 import '../../styles/Forms.css'
 import {PrettoSlider, classes} from '../../styles/Forms.js'
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 

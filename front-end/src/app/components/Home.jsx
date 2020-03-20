@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import HeaderCell from './HeaderCell.jsx'
 import '../styles/Home.css'
 import PersonFormController from './PersonFormController.jsx'
 import BasicInfo from './formComponents/BasicInfo.jsx'
@@ -12,7 +11,7 @@ import Results from './Results.jsx'
 export default class Home extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
+        this.initialState = {
             ageValue: 0,
             heightValue: 0,
             weightValue: 0,
@@ -45,6 +44,7 @@ export default class Home extends React.Component {
             saturatedFatsValue: 0, 
             unsaturatedFatsValue: 0
         }
+        this.state = this.initialState
     }
 
     handleSliderChange = (value, id) => {

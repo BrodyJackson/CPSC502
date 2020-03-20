@@ -10,6 +10,10 @@
   height: 75vh;
 }
 
+.loadingContainerResults{
+  height:30vh;
+}
+
 .bacteriaInfoContainer {
   -webkit-box-shadow: 0px 16px 31px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 16px 31px -9px rgba(0,0,0,0.75);

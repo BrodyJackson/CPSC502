@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -58,8 +57,6 @@ export default function HorizontalLinearStepper(props) {
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error("You can't skip a step that isn't optional.");
     }
 
@@ -72,21 +69,9 @@ export default function HorizontalLinearStepper(props) {
   };
 
   const handleReset = () => {
-    setActiveStep(0);
+    window.location.reload()
+    // setActiveStep(0);
   };
-
-  // const determineFormItems = (activeStep) => {
-  //   switch (activeStep) {
-  //     case 0: 
-  //       return <BasicInfo></BasicInfo>;
-  //     case 1:
-  //       return <LifestyleInfo></LifestyleInfo>;
-  //     case 2:
-  //       return <DietInfo></DietInfo>;
-  //     default:
-  //       return 'Unknown step';
-  //   }
-  // }
 
   return (
     <Grid item xs={12}>
@@ -117,7 +102,8 @@ export default function HorizontalLinearStepper(props) {
           </div>
         ) : (
           <div>
-            <Typography >{getStepContent(activeStep)}</Typography>
+            {/*comment out the humor becuase I'm not funny*/}
+            {/*<Typography >{getStepContent(activeStep)}</Typography>*/}
             <div>
               <Button disabled={activeStep === 0} onClick={handleBack} style={{marginBottom:'2vh'}} >
                 Back
