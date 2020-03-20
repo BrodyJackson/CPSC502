@@ -46,7 +46,7 @@ export default class BasicInfo extends React.Component {
                 </div>
                 <div className="formElement">
                     <Grid item >
-                        <Typography variant='h5'>How Tall are you? (CM)</Typography>
+                        <Typography variant='h5'>How tall are you? (CM)</Typography>
                     </Grid>
                     <Grid item >
                         <PrettoSlider
