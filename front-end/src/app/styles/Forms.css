@@ -59,6 +59,24 @@
     .welcomeFinal {
         padding-left: 15%;
     }
+    .explanationModal{
+        height: 90% !important;
+        width: 75% !important;
+        margin-top: 2vh;
+        margin-left: 10vw;
+        background-color: white;
+    }
+    .resultsModalHeader {
+        font-size: 1rem !important;
+        margin-top: 5vh !important;
+    }
+    .resultsModalText {
+        font-size: 0.75rem !important;
+    }
+    .fullWidth {
+        width: 100% !important;
+
+    }
 }
 
 @media only screen and (max-width: 630px) {
@@ -75,7 +93,7 @@
     }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 450px) {
     .welcomeMessage {
         font-size: 4rem !important;
     }
@@ -87,5 +105,23 @@
     .flexController {
         flex-direction: column-reverse;
         margin-top: 55vh !important;
+    }
+    .explanationModal{
+        height: 90% !important;
+        width: 90% !important;
+        margin-top: 2vh;
+        margin-left: 5vw;
+        background-color: white;
+    }
+    .resultsModalHeader {
+        font-size: 1rem !important;
+        margin-top: 2vh !important;
+    }
+    .resultsModalText {
+        font-size: 0.75rem !important;
+    }
+    .fullWidth {
+        width: 100% !important;
+
     }
 }

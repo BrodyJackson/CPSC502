@@ -13,7 +13,7 @@ export default class Results extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loading: false, //set to true to enable loading spinner
+            loading: true, //set to true to enable loading spinner
             explainModal: false,
             allBacteria: allGenusList,
             selectedBacteria: 'Proteobacteria',
@@ -117,16 +117,16 @@ export default class Results extends React.Component {
                     <Grid container direction='row' className='resultsContainer' justify="space-between">
                         <Modal open={this.state.explainModal} onClose={() => this.explanationModal()} style={{overflowY:'scroll'}} className={'explanationModal'}>
                             <Grid container className={'explanationModalContainer'}>
-                                <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What are these diversity numbers?</Typography></Grid>
-                                <Typography variant='h6' style={{ paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
+                                <Grid className={'fullWidth'} item lg={10}><Typography className={'resultsModalHeader'} variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What are these diversity numbers?</Typography></Grid>
+                                <Typography variant='h6' className={'resultsModalText'} style={{ paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
                                     We've scaled the predicted change in bacterial numbers caused by each lifestyle factor across Phylum types. These values range from severity of -10 to 10, with a value of 0 indicating no effect. Values that are negative indicate a lifestyle element is decreasing the prevalence of that population in the gut, while positive values mean the opposite.
                                 </Typography>
-                                <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>How were these numbers calculated?</Typography></Grid>
-                                <Typography variant='h6' style={{  paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
+                                <Grid item className={'fullWidth'} lg={10}><Typography className={'resultsModalHeader'} variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>How were these numbers calculated?</Typography></Grid>
+                                <Typography className={'resultsModalText'} variant='h6' style={{  paddingRight: '5%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
                                     A predictive model has been developed using a large public dataset which links lifestyle attributes to bacteria sequences found within fecal samples. Your responses to the previous survey have been entered into this model, which uses machine learning techniques to predict the amount of each bacterial phylum in your gut. The model also decribes the level of change that each lifestyle factor has on specific bacteria. We used these values to determine your unique differences from average of each bacterial population, then normalized these into the -10 to +10 scale described above.
                                 </Typography>
-                                <Grid item lg={10}><Typography variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What does this information mean?</Typography></Grid>
-                                <Typography variant='h6' style={{  paddingRight: '5%', marginBottom: '2%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
+                                <Grid item className={'fullWidth'} lg={10}><Typography className={'resultsModalHeader'} variant="h4" style={{ marginTop:'5vh', marginLeft: '2%', color: '#52af77'}}>What does this information mean?</Typography></Grid>
+                                <Typography className={'resultsModalText'} variant='h6' style={{  paddingRight: '5%', marginBottom: '2%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
                                     Our hope is that you would use the heatmap provided to recognize areas of your life which are having a large positive or negative increase on different bacteria in your gut. Considering that some bacterial phylum are beneficial while others are negative, this information should be used to guide your search in the area below the heatmap where you can find out more details about each phylum. If you noticed a large decrease in a particular population within the heatmap, and this bacteria is described as being beneficial, you would want to focus on stopping the activities reported as lowering that particular phylum.
                                 </Typography>
                             </Grid>
