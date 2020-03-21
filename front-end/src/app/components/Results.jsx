@@ -129,6 +129,7 @@ export default class Results extends React.Component {
                                 <Typography className={'resultsModalText'} variant='h6' style={{  paddingRight: '5%', marginBottom: '2%', marginTop: '2%', marginLeft: '2%', fontWeight:300 }}>
                                     Our hope is that you would use the heatmap provided to recognize areas of your life which are having a large positive or negative increase on different bacteria in your gut. Considering that some bacterial phylum are beneficial while others are negative, this information should be used to guide your search in the area below the heatmap where you can find out more details about each phylum. If you noticed a large decrease in a particular population within the heatmap, and this bacteria is described as being beneficial, you would want to focus on stopping the activities reported as lowering that particular phylum.
                                 </Typography>
+                                <Grid item className={'closeButton'}><Button color={'primary'} variant={'outlined'} onClick={() => this.explanationModal()}>Close</Button></Grid>
                             </Grid>
                         </Modal>
                         <Grid item lg={8} className={'resultsMargins'} style={{marginTop:'5vh'}}>
